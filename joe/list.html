@@ -25,15 +25,27 @@
 
 <script>
 
-    function create(type, parent, text) {
+    /*
+    function myFunction(parameter1, parameter2) {
+        code to execute
+    }
+    */
+
+    // create a function to create an element
+    function create(type, parent, text) { 
+        //creates an element
         const el = document.createElement(type);
+        //update the parent's children 
         parent.appendChild(el);
+        //checking if text is passed into our function
         if(text) {
+            // if it is, we update our element's inner text
             el.innerText = text;
         }
+        //return the element
         return el;
     }
-
+    //assign body variable to the document's body
     const body = document.body;
     const input = create('input', body);
     const button = create('button', body, 'Submit');
