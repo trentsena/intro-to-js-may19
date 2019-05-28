@@ -5,10 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>List</title>
+    <style>
+
+        li {
+            transition: 1s;
+        }
+        .checked {
+            text-decoration: line-through;
+        }
+        .tiny {
+            font-size: .8em;
+        }
+        .grey {
+            color: gray;
+        }
+    </style>
 </head>
 <body>
-    <input type="text">
-    <ul></ul>
 
 <script>
 
@@ -20,6 +33,8 @@
         }
         return el;
     }
+
+    const body = document.body;
     const input = create('input', body);
     const button = create('button', body, 'Submit');
     const ul = create('ul', body);
@@ -30,7 +45,19 @@
         if (!value) {
             return;
         }
-        create('li', ul, value);
+        const li = create('li', ul, value);
+        const checkbox = create('input', li);
+        li.prepend(checkbox);
+        checkbox.type = 'checkbox';
+        checkbox.value = '';
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                this.parentNode.classList.add('checked', 'tiny', 'grey');
+            } else {
+                this.parentNode.classList.remove('checked', 'tiny', 'grey');
+            };
+            
+        })
         input.value = '';
     }
 </script>
