@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List</title>
+    <style>
+
+        li {
+            transition: 1s;
+        }
+        .checked {
+            text-decoration: line-through;
+        }
+        .tiny {
+            font-size: .8em;
+        }
+        .grey {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+
+    /*
+    function myFunction(parameter1, parameter2) {
+        code to execute
+    }
+    */
+
+    // create a function to create an element
+    function create(type, parent, text) { 
+        //creates an element
+        const el = document.createElement(type);
+        //update the parent's children 
+        parent.appendChild(el);
+        //checking if text is passed into our function
+        if(text) {
+            // if it is, we update our element's inner text
+            el.innerText = text;
+        }
+        //return the element
+        return el;
+    }
+    //assign body variable to the document's body
+    const body = document.body;
+    const input = create('input', body);
+    const button = create('button', body, 'Submit');
+    const ul = create('ul', body);
+
+    button.addEventListener('click', newTodo);
+    function newTodo() {
+        const value = input.value;
+        if (!value) {
+            return;
+        }
+        const li = create('li', ul, value);
+        const checkbox = create('input', li);
+        li.prepend(checkbox);
+        checkbox.type = 'checkbox';
+        checkbox.value = '';
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                this.parentNode.classList.add('checked', 'tiny', 'grey');
+            } else {
+                this.parentNode.classList.remove('checked', 'tiny', 'grey');
+            };
+            
+        })
+        input.value = '';
+    }
+</script>
+</body>
+</html>
