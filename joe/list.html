@@ -11,9 +11,28 @@
     <ul></ul>
 
 <script>
-    // create
-    const input = document.createElement('input');
-    // update the body tag's children array
+
+    function create(type, parent, text) {
+        const el = document.createElement(type);
+        parent.appendChild(el);
+        if(text) {
+            el.innerText = text;
+        }
+        return el;
+    }
+    const input = create('input', body);
+    const button = create('button', body, 'Submit');
+    const ul = create('ul', body);
+
+    button.addEventListener('click', newTodo);
+    function newTodo() {
+        const value = input.value;
+        if (!value) {
+            return;
+        }
+        create('li', ul, value);
+        input.value = '';
+    }
 </script>
 </body>
 </html>
