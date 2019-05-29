@@ -5,13 +5,47 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="css/styles.css">
-   <title>Intro to JS</title>
+   <title>Renee</title>
 </head>
 <body>
 
-<h1>Renee</h1>
+<h1>Renee Harder</h1>
+
+   <script>
+      // data types
+      let number = 9;
+      let string = 'value';  
+      let boolean = true;
+         let isOldEnoughToBuyBeer = true; //boolean example
+      let myNull = null;
+      let myUndefined = undefined;  // has not been assigned a value.  Not used often
+
+      // complex
+      // let myObject = new Object();
+      let myObject = {
+         name: 'renee',
+         eyeColor: 'green',
+      };
+      //let myArray = new Array();
+      let myArray = []; 
+      let cars = ['Honda', 'Toyota', 'Ford']; //example of an array. 
+
+      console.log(typeof string);  //console.log is not part of the code, just a way to see what is happening with the JS. 
+
+      // create
+      // var varName = 'var'; WON'T BE USED OFTEN.  THE NEXT TWO ARE NEWER AND BETTER. 
+      const constName = 'const';  // USE THIS MOST, UNLESS YOU KNOW YOU'RE GOING TO CHANGE THEM.  THEN USE LET. 
+      let letName = 'let';
+      // update
+      letName = 9;
+      console.log(myObject.eyeColor);
+      console.log(string);
+
+      // DELETE 
+      delete myObject.age;
+      delete cars[1]
 
 
-   <script src="js/scripts.js"></script>
+   </script>
 </body>
 </html>
