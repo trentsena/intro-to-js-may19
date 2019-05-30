@@ -1,53 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <title>Geekwise Intro to Js</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Geekwise Intro to Js</title>
+    <link rel="stylesheet" href="vinson/shared/doc.css">
+    <style>
 
-   <style>
+        .folder-container img {
+            width: 50px;
+            height: 50px;
+            vertical-align: text-bottom;
+        }
 
-      h1, h2 {
-         text-align: center;
-      }
+        .users {
+            padding-right: 100px;
+        }
 
-      ul li {
-         text-transform: capitalize;
-         margin: 0;
-         padding: 0 !important;
-         position: relative;
-         left: -20px;
-         list-style: none;
-         margin-bottom: .5em;
-      }
-      a {
-         display: block;
-         text-align: center;
-         margin: 0 auto;
-      }
-   </style>
+    </style>
 </head>
 <body>
-<h1>Intro to Js</h1>
-<h2>Home</h2>
+<main>
+    <h1>Intro to Js</h1>
+    <h2>Home</h2>
+    <p>
+        This is the index.html file that is in the root of the project. An index file will be the default file loaded from the server when you navigate to a folder.
+    </p>
+    <hr>
+    <h3>Users</h3>
+    <p>All the users in Alphabetical order. Clicking these links will navigate our server into a folder. Again it will load the index.html file it finds there by default.</p>
+    <div class="flex-row">
+        <ul class="users">
+            <li><a href="angelo">angelo</a></li>
+            <li><a href="jojo">jojo</a></li>
+            <li><a href="megan">megan</a></li>
+            <li><a href="noah">noah</a></li>
+            <li><a href="renee">renee</a></li>
+            <li><a href="sal">sal</a></li>
+            <li><a href="trent">trent</a></li>
+            <li><a href="vinson">vinson</a></li>
+            <li><a href="zac">zac</a></li>
 
-<ul>
-   <li> <a href="angelo">angelo</a> </li>
-   <li> <a href="jojo">jojo</a> </li>
-   <li> <a href="megan">megan</a> </li>
-   <li> <a href="noah">noah</a> </li>
-   <li> <a href="renee">renee</a> </li>
-   <li> <a href="sal">sal</a> </li>
-   <li> <a href="trent">trent</a> </li>
-   <li> <a href="vinson">vinson</a> </li>
-   <li> <a href="zac">zac</a> </li>
-   <li> <a href="vinson/git-commands.html">git commands</a> </li>
-</ul>
+        </ul>
+        <div class="folder-container">
+            <ul>
+                <li class="flex-row">
+                    <div class="flex-column">
+                        <img src="vinson/shared/images/folder.png" alt="">
+                        <div>project root</div>
+                    </div>
 
-<p>
-   This is the index.html file that is in the root of the project
-</p>
+                    <ul>
+                        <li class="flex-row">
+                            <div class="flex-column">
+                                <img src="vinson/shared/images/folder.png" alt="">
+                                <div>Student root</div>
+                            </div>
+
+                            <ul>
+                                <li class="flex-row">
+                                    <ul>
+                                        <li><img src="vinson/shared/images/html.png" alt="">
+                                            <div>index.html</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="flex-row">
+                            <div>
+                                <img src="vinson/shared/images/folder.png" alt="">
+                                <div>Student root</div>
+                            </div>
+
+                            <ul>
+                                <li class="flex-row">
+                                    <ul>
+                                        <li><img src="vinson/shared/images/html.png" alt="">
+                                            <div>index.html</div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><img src="vinson/shared/images/html.png" alt="">
+                            <div>index.html</div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+ 
+
+    <hr>
+
+    <h3>Resources</h3>
+    <ul>
+        <li>
+            <a href="vinson/basics.html">basics</a>
+        </li>
+        <li>
+            <a href="vinson/git-commands.html">git commands</a>
+        </li>
+        <li>
+            <a href="vinson/list.html">list</a>
+        </li>
+        <li>
+            <a href="vinson/tutorial-list.html">tutorial: list</a>
+        </li>
+    </ul>
+
+</main>
 
 </body>
 </html>
