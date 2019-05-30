@@ -23,7 +23,8 @@ body {
     padding: 0;
 }
 main {
-    width: 800px;
+    min-width: 800px;
+    width: 50%;
     margin: 0 auto;
     height: 100%;
     background-color: var(--color-2);
@@ -41,7 +42,7 @@ h1 {
 h1, h2,h3 {
     text-align: center;
     text-transform: capitalize;
-    color: var(--color3)
+    color: var(--color3);
 }
 
 ul li {
@@ -65,7 +66,7 @@ a {
     color: var(--color1);
 }
 a:visited{
-    color: var(--color-3)
+    color: var(--color-3);
 }
 a:hover {
     color: var(--color4);
@@ -98,5 +99,5 @@ table {
 th {
     text-align: left;
     background-color: var(--color-1);
-    color: var(--color3)
+    color: var(--color3);
 }
