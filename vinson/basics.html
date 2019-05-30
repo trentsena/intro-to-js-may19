@@ -3,82 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>Basics</title>
+    <link rel="stylesheet" href="shared/doc.css">
+    <style>
+        li {
+            display: flex;
+        }
+    </style>
 </head>
 <body>
-
+<main>
+    <h1>Basics</h1>
     <h2>Types</h2>
-    <h3>Primitive</h3>
-    <ul>
-        <li>Boolean
-            <ul>
-                <li>true</li>
-                <li>false</li>
-            </ul>
-        </li>
-        <li>Number
-            <ul>
-                <li>every number except 0</li>
-                <li>0</li>
-            </ul>
-        </li>
-        <li>String
-            <ul>
-                <li>every string except ''</li>
-                <li>""</li>
-            </ul>
-        </li>
-        <li>Null
-            <ul>
-                <li>always falsy</li>\
-            </ul>
-        </li>
-        <li>Undefined
-            <ul>
-                <li>always falsy</li>
-            </ul>
-        </li>
-    </ul>
-    <h3>Complex</h3>
-    <ul>
-        <li>Objects
-            <ul>
-                <li>always truthy</li>
-            </ul>
-        </li>
-        <li>Array
-            <ul>
-                <li>always truthy</li>
-            </ul>
-        </li>
-    </ul>
-<h3>What you can do</h3>
-<ul>
-    <li>Create
-        <ul>
-            <li>var myNumber = 1</li>
-        </ul>
-    </li>
-    <li>Read
-        <ul>
-            <li>console.log(myNumber)</li>
-            <li>myNumber</li>
-        </ul>
-    </li>
-    <li>Update
-        <ul>
-            <li>myNumber = 2</li>
-            <li>myNumber += 1</li>
-        </ul>
-    </li>
+    <table style="width:100%">
+        <tr>
+            <th>Types</th>
+            <th>Primitive</th>
+            <th>Complex</th>
+            <th>Truthy</th>
+            <th>Falsy</th>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>x</td>
+            <td>-</td>
+            <td>All except ""</td>
+            <td>only ""</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>x</td>
+            <td>-</td>
+            <td>All except 0</td>
+            <td>only 0</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>x</td>
+            <td>-</td>
+            <td>only true</td>
+            <td>only false</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>-</td>
+            <td>x</td>
+            <td>Always</td>
+            <td>Never</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>-</td>
+            <td>x</td>
+            <td>Always</td>
+            <td>Never</td>
+        </tr>
+        <tr>
+            <td>HtmlElement</td>
+            <td>-</td>
+            <td>x</td>
+            <td>Always</td>
+            <td>Never</td>
+        </tr>
+    </table>
+    <hr>
+    <h2>What you can do</h2>
+    <table style="width:100%">
+        <tr>
+            <th>Types</th>
+            <th>Create</th>
+            <th>Read</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>let myString = "i am a string"</td>
+            <td>console.log(myString)</td>
+            <td>myString = "i am an updated string"</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>let myNumber = 1</td>
+            <td>console.log(myNumber)</td>
+            <td>myNumber = 2</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>let myBool = true</td>
+            <td>console.log(myBool)</td>
+            <td>myBool = false</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>let myObj = { name: 'vinson'}</td>
+            <td>console.log(myObject.name)</td>
+            <td>myObj.name = "vince"</td>
+            <td>only properties</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>let myArray = [0, {}, true]</td>
+            <td>console.log(myArray[2])</td>
+            <td>myObj[0]= true</td>
+            <td>only indexes</td>
+        </tr>
+        <tr>
+            <td>HtmlElement</td>
+            <td>let myEl = document.createElement('h1')</td>
+            <td>document.querySelector('h1')</td>
+            <td>myEl.classList.add('class')</td>
+            <td>myEl.remove()</td>
+        </tr>
+    </table>
 
-    <li>Delete
-        <ul>
-            <li>user = {name: 'vinson'}</li>
-            <li>delete user.name</li>
-            <li>{}</li>
-        </ul>
-    </li>
+</main>
 
-</ul>
 </body>
 </html>
