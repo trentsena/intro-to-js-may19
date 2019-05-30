@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <style>
+    .checked {
+        text-decoration: line-through
+    }
+    </style>
+</head>
+<body>
+
+
+
+<script>
+
+    /*
+    function myFunction(parameter1, parameter2) {
+        code to execute
+    }
+    */
+
+    // create a function to create an element
+   function create(type, parent, text){
+    // creates an element
+    const el = document.createElement('input');
+    // update the parent's children
+    parent.appendChild(el);
+    // checking if text is passed into our function
+    if(text) {
+    // if it is, we update our element's inner text
+        el.innerText = text;
+    }
+    // return the element
+    return el;
+   }
+//    assign body variable to the document's body
+   const body = document.body;
+   const input = create('input', body);
+   const button = create('button', body, 'Submit');
+   const ul = create('ul', body);
+
+   button.addEventListener('click', newTodo);
+   function newTodo() {
+       const value = input.value;
+       if (!value) {
+           return;
+       }
+        const li = create('li', ul, value);
+        const checkbox = create('input', li);
+        checkbox.type = 'checkbox';
+        checkbox.value = '';
+        checkbox.addEventListener('change', function () {
+            console.dir(this.checked);
+        if(this.checked) {
+            this.parentNode.classList.add('checked');
+            this.parentNode.classList.add('tiny');
+            this.parentNode.classList.add('grey');
+        } else {
+            this.parentNode.classList.remove('checked');
+            this.parentNode.classList.remove('tiny');
+            this.parentNode.classList.remove('grey');
+        };
+
+    })
+    input.value = '';
+   }
+</script>
+</body>
+</html>
