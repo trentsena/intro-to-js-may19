@@ -12,18 +12,21 @@
     --color-4: #be9063;
     --color-5: #A4978e;
 }
+
 html, body {
     height: 100%;
     background: var(--color-5);
     background: linear-gradient(90deg, var(--color-2) 0%, var(--color-3) 49%, var(--color-2) 100%);
 }
+
 body {
     margin: 0;
     padding: 0;
 }
+
 main {
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     min-width: 800px;
     width: 50%;
     margin: 0 auto;
@@ -34,13 +37,18 @@ main {
     color: var(--color5);
 }
 
+main:hover {
+    overflow: auto;
+}
+
 h1 {
     margin-top: 0;
     background-color: var(--color-1);
     padding: 1em;
 
 }
-h1, h2,h3 {
+
+h1, h2, h3, h4, h5 {
     text-align: center;
     text-transform: capitalize;
     color: var(--color3);
@@ -60,17 +68,19 @@ ul li {
 }
 
 a {
-    display: block;
     /*text-align: center;*/
     /*margin: 0 auto;*/
     color: var(--color1);
 }
-a:visited{
+
+a:visited {
     color: var(--color-3);
 }
+
 a:hover {
     color: var(--color4);
 }
+
 p {
     padding-left: 1em;
     padding-right: 1em;
@@ -100,4 +110,12 @@ th {
     text-align: left;
     background-color: var(--color-1);
     color: var(--color3);
+}
+
+.fold * {
+    display: none;
+}
+
+.fold h3 {
+    display: block;
 }

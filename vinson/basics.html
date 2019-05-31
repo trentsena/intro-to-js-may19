@@ -119,6 +119,61 @@
         </tr>
     </table>
 
+    <h2>
+        Variables
+    </h2>
+
+    <table style="width:100%">
+        <tr>
+            <th>Types</th>
+            <th>re-assignable</th>
+            <th>re-declarable</th>
+            <th>scope</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <td>String</td>
+            <td>let myString = "i am a string"</td>
+            <td>console.log(myString)</td>
+            <td>myString = "i am an updated string"</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Number</td>
+            <td>let myNumber = 1</td>
+            <td>console.log(myNumber)</td>
+            <td>myNumber = 2</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Boolean</td>
+            <td>let myBool = true</td>
+            <td>console.log(myBool)</td>
+            <td>myBool = false</td>
+            <td>cannot (primitive)</td>
+        </tr>
+        <tr>
+            <td>Object</td>
+            <td>let myObj = { name: 'vinson'}</td>
+            <td>console.log(myObject.name)</td>
+            <td>myObj.name = "vince"</td>
+            <td>only properties</td>
+        </tr>
+        <tr>
+            <td>Array</td>
+            <td>let myArray = [0, {}, true]</td>
+            <td>console.log(myArray[2])</td>
+            <td>myObj[0]= true</td>
+            <td>only indexes</td>
+        </tr>
+        <tr>
+            <td>HtmlElement</td>
+            <td>let myEl = document.createElement('h1')</td>
+            <td>document.querySelector('h1')</td>
+            <td>myEl.classList.add('class')</td>
+            <td>myEl.remove()</td>
+        </tr>
+    </table>
 </main>
 
 </body>

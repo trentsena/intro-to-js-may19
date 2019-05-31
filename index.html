@@ -11,17 +11,19 @@
         .folder-container {
             position: relative;
         }
+
         .folder-container img {
             width: 50px;
             height: 50px;
             vertical-align: text-bottom;
         }
 
-        .folder-container ul > li > ul >li ul {
+        .folder-container ul > li > ul > li ul {
             height: 40px;
             position: relative;
             top: .1em;
         }
+
         .users {
             padding-left: 1.3em;
             margin: auto;
@@ -32,129 +34,223 @@
             position: absolute;
             z-index: 1;
         }
+
         .line-1 {
             width: 40px;
             top: 50px;
             left: 70px;
         }
-        .line-2{
+
+        .line-2 {
             width: 40px;
             top: 50px;
             left: 165px;
         }
-        .line-3{
+
+        .line-3 {
             width: 160px;
             top: 130px;
             left: 20px;
             transform: rotate(90deg);
         }
-        .line-4{
+
+        .line-4 {
             width: 40px;
             top: 130px;
             left: 165px;
+        }
+
+        .guide-buttons-ul button {
+            margin: .5em;
+            width: 100px;
+            text-transform: capitalize;
+        }
+
+
+
+
+        .project-tutorial ul {
+            border: 1px dotted black;
+            display: inline-block;
+            margin: 5px;
+        }
+        .project-tutorial ul li {
+            padding: 1em;
         }
 
     </style>
 </head>
 <body>
 <main>
-   
+
     <h1>Intro to Js</h1>
     <h2>Home</h2>
     <p>
-        This is the index.html file that is in the root of the project. An index file will be the default file loaded from the server when you navigate to a folder.
+        This is the index.html file that is in the root of the project. An index file will be the default file loaded
+        from the server when you navigate to a folder.
     </p>
     <hr>
-    <h3>Users</h3>
-    <p>All the users in Alphabetical order. Clicking these links will navigate our server into a folder. Again it will load the index.html file it finds there by default.</p>
-    <div class="flex-row">
-        <ul class="users capitalize">
-            <li><a href="angelo">angelo</a></li>
-            <li><a href="jojo">jojo</a></li>
-            <li><a href="megan">megan</a></li>
-            <li><a href="noah">noah</a></li>
-            <li><a href="renee">renee</a></li>
-            <li><a href="sal">sal</a></li>
-            <li><a href="trent">trent</a></li>
-            <li><a href="vinson">vinson</a></li>
-            <li><a href="zac">zac</a></li>
+    <section>
+        <h3>Users</h3>
+        <p>All the users in Alphabetical order. Clicking these links will navigate our server into a folder. Again it
+            will load the index.html file it finds there by default.</p>
+        <div class="flex-row">
+            <ul class="users capitalize">
+                <li><a href="Aaron">aaron</a></li>
+                <li><a href="angelo">angelo</a></li>
+                <li><a href="JoJo">joJo</a></li>
+                <li><a href="joe">joe</a></li>
+                <li><a href="megan">megan</a></li>
+                <li><a href="noah">noah</a></li>
+                <li><a href="renee">renee</a></li>
+                <li><a href="sal">sal</a></li>
+                <li><a href="trent">trent</a></li>
+                <li><a href="vinson">vinson</a></li>
+                <li><a href="zac">zac</a></li>
+
+            </ul>
+            <div class="folder-container">
+                <div class="line-1 line"></div>
+                <div class="line-2 line"></div>
+                <div class="line-3 line"></div>
+                <div class="line-4 line"></div>
+                <ul>
+                    <li class="flex-row">
+                        <div class="flex-column">
+                            <img src="vinson/shared/images/folder.png" alt="">
+                            <div>project root</div>
+                        </div>
+
+                        <ul>
+                            <li class="flex-row">
+                                <div class="flex-column">
+                                    <img src="vinson/shared/images/folder.png" alt="">
+                                    <div>student</div>
+                                </div>
+
+                                <ul>
+                                    <li class="flex-row">
+                                        <ul>
+                                            <li><img src="vinson/shared/images/html.png" alt="">
+                                                <div>index.html</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="flex-row">
+                                <div>
+                                    <img src="vinson/shared/images/folder.png" alt="">
+                                    <div>student</div>
+                                </div>
+
+                                <ul>
+                                    <li class="flex-row">
+                                        <ul>
+                                            <li><img src="vinson/shared/images/html.png" alt="">
+                                                <div>index.html</div>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><img src="vinson/shared/images/html.png" alt="">
+                                <div>index.html</div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="fold">
+        <h3>getting setup</h3>
+        <ul class="guide-buttons-ul">
+            <li><a target="_blank" href="https://github.com/">
+                <button>Github</button>
+            </a> You will need a Github account
+            </li>
+            <li><a href="https://git-scm.com/downloads" target="_blank">
+                <button>Git</button>
+            </a>You will need git installed
+            </li>
+            <li><a href="https://help.github.com/en/articles/connecting-to-github-with-ssh" target="_blank">
+                <button>ssh</button>
+            </a>Setup ssh keys
+            </li>
+            <li><a href="https://github.com/geekwisevinson/intro-to-js-may19" target="_blank">
+                <button>fork</button>
+            </a>Fork this repo
+            </li>
+            <li><a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository" target="_blank">
+                <button>Clone</button>
+            </a>Clone your fork
+            </li>
+            <li><a href="https://help.github.com/en/articles/configuring-a-remote-for-a-fork" target="_blank">
+                <button>Upstream</button>
+            </a>Set your upstream
+            </li>
+        </ul>
+    </section>
+    <hr>
+    <section class="fold">
+        <h3>100x a Day</h3>
+        <ul>
+            <li>git pull upstream master</li>
+            <li>make changes to project</li>
+            <li>git add .</li>
+            <li>git commit -m "some message"</li>
+            <li>git pull upstream master</li>
+            <li>git push origin master</li>
+            <li>go to github and create a pull request</li>
+        </ul>
+    </section>
+    <hr>
+    <section>
+        <h3>What we know</h3>
+        <ul class="capitalize">
+            <li>
+                <a href="vinson/basics.html">basics</a>
+            </li>
 
         </ul>
-        <div class="folder-container">
-            <div class="line-1 line"></div>
-            <div class="line-2 line"></div>
-            <div class="line-3 line"></div>
-            <div class="line-4 line"></div>
-            <ul>
-                <li class="flex-row">
-                    <div class="flex-column">
-                        <img src="vinson/shared/images/folder.png" alt="">
-                        <div>project root</div>
-                    </div>
-
-                    <ul>
-                        <li class="flex-row">
-                            <div class="flex-column">
-                                <img src="vinson/shared/images/folder.png" alt="">
-                                <div>student</div>
-                            </div>
-
-                            <ul>
-                                <li class="flex-row">
-                                    <ul>
-                                        <li><img src="vinson/shared/images/html.png" alt="">
-                                            <div>index.html</div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="flex-row">
-                            <div>
-                                <img src="vinson/shared/images/folder.png" alt="">
-                                <div>student </div>
-                            </div>
-
-                            <ul>
-                                <li class="flex-row">
-                                    <ul>
-                                        <li><img src="vinson/shared/images/html.png" alt="">
-                                            <div>index.html</div>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><img src="vinson/shared/images/html.png" alt="">
-                            <div>index.html</div>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-    </div>
- 
-
+    </section>
     <hr>
 
-    <h3>Resources</h3>
-    <ul class="capitalize">
-        <li>
-            <a href="vinson/basics.html">basics</a>
-        </li>
-        <li>
-            <a href="vinson/git-commands.html">git commands</a>
-        </li>
-        <li>
-            <a href="vinson/list.html">list</a>
-        </li>
-        <li>
-            <a href="vinson/tutorial-list.html">tutorial: list</a>
-        </li>
-    </ul>
+    <section class="project-tutorial">
+        <h3>Our Projects</h3>
+        <ul>
+            <li>
+                <a href="vinson/list.html">list</a>
+            </li>
+            <li>
+                <a href="vinson/tutorial-list.html">tutorial: list</a>
+            </li>
+        </ul>
+    </section>
+
 
 </main>
 
+
+<script>
+
+    const sections = document.querySelectorAll('h3');
+
+    sections.forEach(hr => {
+        hr.addEventListener('click', fold);
+    });
+
+    function fold() {
+        const list = this.parentNode.classList;
+        if (list.contains('fold')) {
+            list.remove('fold');
+        } else {
+            list.add('fold');
+        }
+    }
+</script>
 </body>
 </html>
