@@ -8,20 +8,57 @@
     <link rel="stylesheet" href="vinson/shared/doc.css">
     <style>
 
+        .folder-container {
+            position: relative;
+        }
         .folder-container img {
             width: 50px;
             height: 50px;
             vertical-align: text-bottom;
         }
 
+        .folder-container ul > li > ul >li ul {
+            height: 40px;
+            position: relative;
+            top: .1em;
+        }
         .users {
-            padding-right: 100px;
+            padding-left: 1.3em;
+            margin: auto;
+        }
+
+        .line {
+            border: 1px solid white;
+            position: absolute;
+            z-index: 1;
+        }
+        .line-1 {
+            width: 40px;
+            top: 50px;
+            left: 70px;
+        }
+        .line-2{
+            width: 40px;
+            top: 50px;
+            left: 165px;
+        }
+        .line-3{
+            width: 160px;
+            top: 130px;
+            left: 20px;
+            transform: rotate(90deg);
+        }
+        .line-4{
+            width: 40px;
+            top: 130px;
+            left: 165px;
         }
 
     </style>
 </head>
 <body>
 <main>
+   
     <h1>Intro to Js</h1>
     <h2>Home</h2>
     <p>
@@ -44,6 +81,10 @@
 
         </ul>
         <div class="folder-container">
+            <div class="line-1 line"></div>
+            <div class="line-2 line"></div>
+            <div class="line-3 line"></div>
+            <div class="line-4 line"></div>
             <ul>
                 <li class="flex-row">
                     <div class="flex-column">
@@ -55,7 +96,7 @@
                         <li class="flex-row">
                             <div class="flex-column">
                                 <img src="vinson/shared/images/folder.png" alt="">
-                                <div>student root</div>
+                                <div>student</div>
                             </div>
 
                             <ul>
@@ -71,7 +112,7 @@
                         <li class="flex-row">
                             <div>
                                 <img src="vinson/shared/images/folder.png" alt="">
-                                <div>student root</div>
+                                <div>student </div>
                             </div>
 
                             <ul>

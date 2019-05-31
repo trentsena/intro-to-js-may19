@@ -16,13 +16,14 @@ html, body {
     height: 100%;
     background: var(--color-5);
     background: linear-gradient(90deg, var(--color-2) 0%, var(--color-3) 49%, var(--color-2) 100%);
-
 }
 body {
     margin: 0;
     padding: 0;
 }
 main {
+    position: relative;
+    overflow: auto;
     min-width: 800px;
     width: 50%;
     margin: 0 auto;
@@ -46,7 +47,6 @@ h1, h2,h3 {
 }
 
 ul li {
-
     margin: 0;
     padding: 0 !important;
     position: relative;

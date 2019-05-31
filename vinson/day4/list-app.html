@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+    <style>
+        .done {
+            color : red;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+
+const header = document.createElement('h1');
+const nav = document.createElement("p");
+const title = document.createElement(`p`);
+const ul = document.createElement('ul');
+
+header.innerText = 'Welcome to Js';
+title.innerText = 'i am a p tag';
+nav.innerText = 'im the nav';
+
+document.body.appendChild(header);
+document.body.appendChild(title);
+document.body.insertBefore(nav, title);
+document.body.appendChild(ul);
+ul.innerHTML = `
+<li>one</li>
+<li>two</li>
+<li>three <ul>
+<li>
+    one A
+</li>
+
+<li>
+two A
+</li>
+</ul></li>
+`
+</script>
+</body>
+</html>
