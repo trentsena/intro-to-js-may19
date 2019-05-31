@@ -113,9 +113,36 @@ th {
 }
 
 .fold * {
-    display: none;
+    display: none !important;
 }
 
 .fold h3 {
+    display: block !important;
+}
+
+.code {
+    background-color: moccasin;
+    color: black;
+}
+
+.code {
+    position: relative;
     display: block;
+    border-bottom: 1px dotted black;
+    font-size: large;
+}
+
+.code .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.code:hover .tooltiptext {
+    visibility: visible;
 }
