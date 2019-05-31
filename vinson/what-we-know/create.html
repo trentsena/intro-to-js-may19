@@ -9,7 +9,7 @@
 <main>
     <h1>Create</h1>
     <ul>
-        <a href="../../index.html">Home</a>
+        <a href="../../">Home</a>
     </ul>
     <p>
         There are lots of ways to create things in javascript. Lets take a look.
@@ -69,6 +69,12 @@ document.createElement("h1");
         </p>
         <pre class="code">
 document.body.appendChild(myVariableHoldingAnH1);
+        </pre>
+        <p>
+            We can also add them inside an element by using strings.
+        </p>
+        <pre class="code">
+document.body.querySelector('main').innerHTML = "&lt;div&gt;  &lt;ul&gt;  &lt;li&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;"
         </pre>
     </section>
     <hr>
