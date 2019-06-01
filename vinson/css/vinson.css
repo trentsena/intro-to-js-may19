@@ -1,0 +1,29 @@
+html, body {
+
+    --hw-1: #0d050e;
+    --hw-2: #Ae445d;
+    --hw-3: #d53c3c;
+    --hw-4: #8d2d56;
+    --hw-5: #2b193e;
+    background: linear-gradient(90deg, var(--hw-5) 0%, var(--hw-3) 49%, var(--hw-4) 100%);
+}
+
+main {
+    background:  url("../shared/images/Abc9Mm.jpg") no-repeat center center fixed;
+    min-width: 1200px;
+}
+main::after {
+    content: "";
+    background: url(../shared/images/Abc9Mm.jpg);
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+}
+h1  {
+    color: var(--hw-5);
+    background-color: black;
+}

@@ -15,7 +15,6 @@
 
 html, body {
     height: 100%;
-    background: var(--color-5);
     background: linear-gradient(90deg, var(--color-2) 0%, var(--color-3) 49%, var(--color-2) 100%);
 }
 
@@ -74,7 +73,7 @@ a {
 }
 
 a:visited {
-    color: var(--color-3);
+    color: var(--color-5);
 }
 
 a:hover {
