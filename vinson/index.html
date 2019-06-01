@@ -1,81 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Vinson</title>
-    <link rel="stylesheet" href="shared/doc.css">
-    <link rel="stylesheet" href="css/vinson.css">
+<html class="gr__w3schools_com"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        a {
-            text-transform: capitalize;
+        body, html {
+            height: 100%;
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
+
+        .bgimg-1, .bgimg-2, .bgimg-3 {
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        .bgimg-1 {
+            background-image: url("images/bg.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-2 {
+            background-image: url("images/pic01.jpg");
+            min-height: 400px;
+        }
+
+        .bgimg-3 {
+            background-image: url("images/pic02.jpg");
+            min-height: 400px;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 20px "Lato", sans-serif;
+            color: #111;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1, .bgimg-2, .bgimg-3 {
+                background-attachment: scroll;
+            }
+        }
+        .home {
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            font-size: larger;
+            background-color: #111;
+            padding: 1em;
+            color: white;
         }
     </style>
 </head>
-<body>
+<body data-gr-c-s-loaded="true">
 
-<main>
-    <h1>Vinson</h1>
-
-    <ul>
-        <li>
-            <a href="basics.html">basics</a>
-        </li>
-        <li>
-            <a href="list.html">list</a>
-        </li>
-        <li>
-            <a href="tutorial-list.html">tutorial: list</a>
-        </li>
-    </ul>
-</main>
-
-<script>
-    // data types
-    let number = 9;
-    let name = 'value';
-    let isOldEnoughToBuyBeer = true;
-    let myNull = null;
-    let myUndefined;
-
-    // complex
-    // let myObject = new Object();
-    let myObject = {
-        name: 'vinson',
-        eyeColor: 'brown',
-        age: 34,
-        location: {
-            cities: ['madera', 'fresno'],
-        }
-    };
-    // let myArray = new Array();
-
-    // console.log(myObject['name']);
-
-    // console.log(cars );
-   // CREATE
-   //  var varName = 'var';
-   const constName = "const";
-   let letName;
-   // UPDATE
-   letName = 9;
-    // READ
-    let cars = ['Honda', 'Toyota', myObject ];
-    console.log(cars[2]['location'].cities[1]);
-    // console.log(name);
-
-    // DELETE
-    delete myObject.age;
-    // delete cars[1];
-    cars[1000000] = 'Chevy';
-    // cars.splice(1,1);
-    console.log(cars.length);
-    // dot notation
-    // console.log(myObject.eyeColor);
-    // bracket notation
+<div class="bgimg-1">
+    <a class="home border" href="../index.html">Home</a>
+    <div class="caption">
 
 
-</script>
-</body>
-</html>
+        <span class="border">VINSON'S PROJECTS BELOW</span>
+    </div>
+</div>
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Weeks 1-2 projects</p>
+    </div>
+</div>
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; border: 10px solid black; box-sizing: border-boxx ">
+    <h3 style="text-align:center;">List App</h3>
+    <p>A simple list app. A list app that you can add update and delete its items. </p>
+    <p><a href="./list.html">List</a> </p>
+</div>
+
+<div class="bgimg-2">
+    <div class="caption">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LETS GET MORE COMPLEX</span>
+    </div>
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Weeks 3-4 projects</p>
+    </div>
+</div>
+
+<div class="bgimg-3">
+    <div class="caption">
+        <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">AND MORE COMPLEX</span>
+    </div>
+</div>
+
+<div style="position:relative;">
+    <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+        <p>Weeks 5-6 projects</p>
+    </div>
+</div>
+
+<div class="bgimg-1">
+    <div class="caption">
+        <span class="border">AWESOME!</span>
+    </div>
+</div>
+
+
+</body></html>
