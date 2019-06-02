@@ -26,14 +26,21 @@ body {
 main {
     position: relative;
     overflow: hidden;
-    min-width: 800px;
-    width: 50%;
+    max-width: 800px;
+    min-width: 320px;
     margin: 0 auto;
     height: 100%;
     background-color: var(--color-2);
     padding: 1px;
     box-sizing: border-box;
     color: var(--color5);
+}
+
+@media only screen and (max-width: 800px) {
+    main {
+        width: 100%;
+        background-color: red;
+    }
 }
 
 main:hover {
@@ -95,7 +102,9 @@ p {
     flex-direction: column;
 }
 
-
+.flex-wrap {
+    flex-wrap: wrap;
+}
 table, td, th {
     border: 1px solid black;
 }

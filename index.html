@@ -43,20 +43,20 @@
         .line-2 {
             width: 40px;
             top: 50px;
-            left: 165px;
+            left: 138px;
         }
 
         .line-3 {
             width: 160px;
             top: 130px;
-            left: 20px;
+            left: 0px;
             transform: rotate(90deg);
         }
 
         .line-4 {
             width: 100px;
             top: 100px;
-            left: 145px;
+            left: 120px;
             transform: rotate(90deg);
         }
 
@@ -81,6 +81,10 @@
             display: flex;
             justify-content: space-evenly;
         }
+
+        .project-dirs {
+            width: 300px;
+        }
     </style>
 </head>
 <body>
@@ -102,7 +106,7 @@
         <h3>Users</h3>
         <p>All the users in Alphabetical order. Clicking these links will navigate our server into a folder. Again it
             will load the index.html file it finds there by default.</p>
-        <div class="flex-row">
+        <div class="flex-row flex-wrap">
             <ul class="users capitalize">
                 <li><a href="Aaron">aaron</a></li>
                 <li><a href="angelo">angelo</a></li>
@@ -117,7 +121,7 @@
                 <li><a href="zac">zac</a></li>
 
             </ul>
-            <div class="folder-container">
+            <div class="folder-container project-dirs">
                 <div class="line-1 line"></div>
                 <div class="line-2 line"></div>
                 <div class="line-3 line"></div>
