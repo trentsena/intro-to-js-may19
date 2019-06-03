@@ -120,43 +120,43 @@
             <tr>
                 <td>String</td>
                 <td>var myString = "i am a string"</td>
-                <td>console.log(myString)</td>
+                <td>console.log( myString )</td>
                 <td>myString = "i am an updated string"</td>
-                <td>cannot (primitive)</td>
+                <td>cannot ( primitive )</td>
             </tr>
             <tr>
                 <td>Number</td>
                 <td>let myNumber = 1</td>
-                <td>console.log(myNumber)</td>
+                <td>console.log( myNumber )</td>
                 <td>myNumber = 2</td>
-                <td>cannot (primitive)</td>
+                <td>cannot ( primitive )</td>
             </tr>
             <tr>
                 <td>Boolean</td>
                 <td>const myBool = true</td>
-                <td>console.log(myBool)</td>
+                <td>console.log( myBool )</td>
                 <td>myBool = false</td>
-                <td>cannot (primitive)</td>
+                <td>cannot ( primitive )</td>
             </tr>
             <tr>
                 <td>Object</td>
                 <td>var myObj = { name: 'vinson'}</td>
-                <td>console.log(myObject.name)</td>
+                <td>console.log( myObject.name )</td>
                 <td>myObj.name = "vince"</td>
                 <td>only properties</td>
             </tr>
             <tr>
                 <td>Array</td>
-                <td>let myArray = [0, {}, true]</td>
-                <td>console.log(myArray[2])</td>
+                <td>let myArray = [ 0, {}, true ]</td>
+                <td>console.log( myArray[ 2 ] )</td>
                 <td>myObj[0]= true</td>
                 <td>only indexes</td>
             </tr>
             <tr>
                 <td>HtmlElement</td>
-                <td>const myEl = document.createElement('h1')</td>
-                <td>document.querySelector('h1')</td>
-                <td>myEl.classList.add('class')</td>
+                <td>const myEl = document.createElement( 'h1' )</td>
+                <td>document.querySelector( 'h1' )</td>
+                <td>myEl.classList.add( 'class' )</td>
                 <td>myEl.remove()</td>
             </tr>
         </table>
@@ -164,22 +164,6 @@
 
     <hr>
 </main>
-<script>
-
-    const sections = document.querySelectorAll('h3');
-
-    sections.forEach(hr => {
-        hr.addEventListener('click', fold);
-    });
-
-    function fold() {
-        const list = this.parentNode.classList;
-        if (list.contains('fold')) {
-            list.remove('fold');
-        } else {
-            list.add('fold');
-        }
-    }
-</script>
+<script src="shared/doc.js"></script>
 </body>
 </html>

@@ -83,22 +83,7 @@
     </section>
     <hr>
 </main>
-<script>
-
-    const sections = document.querySelectorAll('h3');
-
-    sections.forEach(hr => {
-        hr.addEventListener('click', fold);
-    });
-
-    function fold() {
-        const list = this.parentNode.classList;
-        if (list.contains('fold')) {
-            list.remove('fold');
-        } else {
-            list.add('fold');
-        }
-    }
+<script src="../shared/doc.js">
 </script>
 </body>
 </html>
