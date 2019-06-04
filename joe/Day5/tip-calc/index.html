@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tip Calculator</title>
+</head>
+<body>
+    <input type="text">
+    <h2 class="result"></h2>
+    <h3></h3>
+
+    <script>
+        const textInput = document.querySelector('[type]');
+        const resultDiv = document.querySelector('.result');
+        const totalDiv = document.querySelector('h3');
+        console.log(textInput, resultDiv);
+
+        textInput.addEventListener('input', function() {
+            const value = parseInt(this.value);
+            console.log(value);
+            if (isNaN(value)) {
+                console.log('isNan is true');
+            } else {
+                console.log('isNaN is false, do some work');
+                const tip = (Number(this.value) * .15);
+                const tipToFixed = tip.toFixed(2);
+                resultDiv.innerHTML = '$' + tipToFixed;
+                const totalToFixed = (tip + Number(this.value)).toFixed(2);
+                totalDiv.innerHTML= '$' + totalToFixed;
+            };
+        })
+    </script>
+</body>
+</html>
