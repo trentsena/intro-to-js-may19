@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoCorrect</title>
+    <style>
+        #text {
+            border: 1px solid black;
+
+        }
+        input {
+            border: 1px solid red;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+<input type="text">
+<div id="text"></div>
+<script>
+const textDiv = document.querySelector('#text');
+const textInput = document.querySelectorAll('input')[0];
+const words = {
+    i: 'I',
+    thier: 'their',
+    than: 'then'
+};
+textInput.addEventListener('input', function () {
+    console.log(this.value); // this is the object that calls this function
+    const sentence = this.value.split(' ');
+    textDiv.innerText += this.value[this.value.length -1];
+    console.log(sentence);
+    sentence.forEach( function ( word, index) {
+        if ( words[ word ] ) {
+            sentence[index] = words[ word ]
+        }
+    });
+    this.value = sentence.join(' ');
+});
+console.dir( textInput.value );
+</script>
+</body>
+</html>
