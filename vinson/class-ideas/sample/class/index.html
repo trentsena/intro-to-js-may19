@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .head {
+            background-color: yellow;
+            height: 200px;
+            display: inline-block;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .leftEye, .rightEye, .mouth {
+            background-color: black;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            transition: all 1s ease;
+        }
+
+        .leftEye, .rightEye {
+            top: calc(20%);
+            width: 40px;
+            height: 40px;
+            box-shadow: 0 30px 0 0px black;
+            background-color: transparent;
+        }
+
+        .leftEye {
+            left: calc(33% - 20px);
+        }
+        .rightEye {
+            left: calc(66% - 20px);
+        }
+
+        .mouth {
+            background-color: transparent;
+            top: calc(66% - 10px);
+            left: calc(50% - 40px);
+            width: 80px;
+            height: 20px;
+            box-shadow: 0 10px 0 0px black;
+        }
+
+        .closed-eye {
+            box-shadow: 0 10px 0 0px black;
+            top: calc(30%);
+        }
+
+        .surprise-mouth {
+            top: calc(66% - 10px);
+            left: calc(50% - 10px);
+            width: 20px;
+            height: 20px;
+            box-shadow: 0 10px 0 0px black;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+
+        .green {
+            background-color: green;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<script>
+
+    const faces = [];
+  class Face{
+      head;
+      leftEye;
+      rightEye;
+      mouth;
+      color;
+      constructor(  color ) {
+          this.head = document.createElement('div');
+          this.leftEye = document.createElement('div');
+          this.rightEye = document.createElement('div');
+          this.mouth = document.createElement('div');
+
+          document.body.appendChild(this.head);
+          this.head.appendChild(this.leftEye);
+          this.head.appendChild(this.rightEye);
+          this.head.appendChild(this.mouth);
+
+
+          this.head.classList.add('head', color);
+          this.leftEye.classList.add('leftEye', 'closed-eye');
+          this.rightEye.classList.add('rightEye');
+          this.mouth.classList.add('mouth');
+          faces.push(this);
+      }
+
+      closeLeftEye() {
+          console.log('close', this)
+          this.leftEye.classList.add('closed-eye');
+      }
+      closeRightEye() {
+          this.rightEye.classList.add('closed-eye');
+      }
+      openLeftEye() {
+          this.leftEye.classList.remove('closed-eye');
+      }
+      openRightEye() {
+          this.rightEye.classList.remove('closed-eye');
+      }
+
+      closeEyes() {
+          this.closeLeftEye();
+          this.closeRightEye();
+      }
+
+      openEyes() {
+          this.openLeftEye();
+          this.openRightEye();
+      }
+
+      surpriseMouth() {
+          this.mouth.classList.add('surprise-mouth');
+      }
+      smileMouth() {
+          this.mouth.classList.remove('surprise-mouth');
+      }
+
+  }
+
+  const colors = ['yellow','green', 'red', 'blue'];
+  for(let i = 0; i < 20; i++ ) {
+      new Face(colors[i % colors.length]);
+  }
+
+
+
+  setInterval(function () {
+      const actions = ['openEyes', 'closeEyes', 'openLeftEye', 'openRightEye', 'closeLeftEye', 'closeRightEye', 'surpriseMouth', 'smileMouth'];
+      faces.forEach( face => {
+          face[actions[Math.floor(Math.random() * actions.length)]]();
+      });
+  }, 1000)
+</script>
+
+</body>
+</html>
