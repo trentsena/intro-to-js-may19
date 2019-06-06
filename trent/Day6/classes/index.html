@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes</title>
+    <style>
+        .head {
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+            border-radius: 50%;
+            position: relative;
+            
+        }
+        .leftEye, .rightEye {
+            background-color: black;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            border-radius: 50%;
+            transition: 1s ease all ;
+            box-shadow: 0 10px 0 0px black;
+            top: calc(33% - 20px);
+        }
+        .closedEye {
+            background-color: transparent;
+            box-shadow: 0 10px 0 0px black;
+            top: calc(33% - 20px);
+        }
+        .leftEye {  
+            left: calc(33% - 20px);
+        }
+        .rightEye {
+            right: calc(33% - 20px);
+        }
+        .mouth {
+            background-color: transparent;
+            height: 20px;
+            width: 80px;
+            position: absolute;
+            border-radius: 50%;
+            top: 66%;
+            left: calc(50% - 40px);
+            box-shadow: 0 10px 0 0px black;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    class Face {
+        container;
+        head;
+        leftEye;
+        rightEye;
+        mouth;
+        constructor() {
+            this.head = document.createElement('div');
+            this.leftEye = document.createElement('div');
+            this.rightEye = document.createElement('div');
+            this.mouth = document.createElement('div');
+            
+            this.head.classList.add('head');
+            this.leftEye.classList.add('leftEye');
+            this.rightEye.classList.add('rightEye');
+            this.mouth.classList.add('mouth');
+            
+            document.body.appendChild(this.head);
+            this.head.appendChild(this.leftEye);
+            this.head.appendChild(this.rightEye);
+            this.head.appendChild(this.mouth);
+        }
+        closeEyes() {
+            this.rightEye.classList.add('closedEye');
+            this.leftEye.classList.add('closedEye');
+        }
+        openEyes() {
+            this.rightEye.classList.remove('closedEye');
+            this.leftEye.classList.remove('closedEye');
+        }
+        closeLeft() {
+
+        }
+    }
+
+    class largeFace extends Face {
+        
+    }
+
+    setInterval(function () {
+
+    })
+    const face = new Face();
+</script>   
+</body>
+</html>
