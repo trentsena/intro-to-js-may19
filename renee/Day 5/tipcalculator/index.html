@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Calculator</title>
+    <style>
+        :root {
+            --font-size: 40px;
+        }
+        [type],.result, h3 {
+            font-size: var(--font-size);
+        }
+        label {
+            display: block;
+            font-size: var(--font-size);
+        }
+    </style>
+</head>
+<body>
+<label for="">Bill</label>
+<input type="text">
+<label for="">Party Size</label>
+<input type="number">
+<label for="">Tip: 15%</label>
+<h2 class="result"></h2>
+<label for="">Total</label>
+<h3></h3>
+<label for="">Individual Total</label>
+<h2 class="slice"></h2>
+<script>
+    const textInput = document.querySelector('[type]');
+    const resultDiv = document.querySelector('.result');
+    const totalDiv = document.querySelector('h3');
+    const partySize = document.querySelector('[type=number]');
+    const sliceResult = document.querySelector('.slice');
+    console.log(textInput, resultDiv);
+
+    textInput.addEventListener('input', function () {
+        const value = parseInt(this.value);
+        console.log(value);
+        if (isNaN(value)) {
+            console.log('isNaN is true')
+        }else {
+            console.log('isNaN is false. do some work');
+            const tip = (Number(this.value) * .15);
+            const tipToFixed = tip.toFixed(2);
+            resultDiv.innerHTML ='$' + tipToFixed;
+            const totalToFixed = (tip + Number(this.value)).toFixed(2);
+            totalDiv.innerHTML =  '$' + totalToFixed;
+            if (partySize.value) {
+                sliceResult.innerHTML = `$${totalToFixed / partySize.value}`
+            }
+        }
+    })
+</script>
+</body>
+</html>
