@@ -12,7 +12,7 @@ customElements.define('vf-spin-in', (function () {
         constructor(){
             super();
             console.log('logo');
-            this.attachShadow({mode: 'open'});
+            this.attachShadow({mode: 'open', delegatesFocus: true});
         }
         connectedCallback() {
             this.classList.add('fix');
