@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Calculator</title>
+    <style>
+        :root {
+            --font-size: 40px;
+        }
+
+        [type], .result, h3, h2, button {
+            font-size: var(--font-size);
+
+        }
+
+        .gradientText, h1, label {
+            background: -webkit-linear-gradient(#556677, #282E34);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+
+        }
+
+        button {
+            border-radius: 10px;
+            text-transform: capitalize;
+            color: midnightblue;
+        }
+
+        button:nth-child(1) {
+            background-color: darkgreen;
+        }
+
+        button:nth-child(2) {
+            background-color: yellow;
+        }
+
+        button:nth-child(3) {
+            background-color: red;
+        }
+
+        label {
+            display: block;
+            font-size: var(--font-size);
+            text-transform: capitalize;
+        }
+
+        .flex-row {
+            display: flex;
+            justify-content: space-evenly;
+            padding: 14px;
+        }
+
+        span {
+            display: inline-block;
+            padding: 1em;
+            background-color: whitesmoke;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            background-color: midnightblue;
+        }
+
+        .slice {
+            color: #00ff3a;
+        }
+
+        button:focus {
+            outline: 0;
+        }
+        label {
+            padding: 0;
+            margin: 0;
+        }
+        h3, h2 {
+            padding: 0;
+            margin: 0;
+        }
+
+        .slice {
+            background-color: black;
+        }
+        .outline {
+            border: 1px solid black;
+        }
+        h1 {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+<span>
+    <h1>Tip Calculator</h1>
+    <label for="">bill</label>
+<input type="text" value="0">
+<label for="">Percentage</label>
+<input type="text" id="percentageInput" min="0" max="100" value="15">
+
+<label for="">party size</label>
+<input id="partySize" type="number" value="1" min="0">
+<div class="flex-row">
+    <button onclick="setPercentage(20)">good</button> <button onclick="setPercentage(15)">fair</button> <button
+        onclick="setPercentage(10)">poor</button>
+</div>
+    <div class="outline">
+        <label for="">tip</label>
+<h2 class="result"></h2>
+<label for="">total</label>
+<h3></h3>
+<label for="">individual total</label>
+<h2 class="slice"></h2>
+    </div>
+
+</span>
+
+<script>
+    const textInput = document.querySelector('[type]');
+    const percentageInput = document.querySelector('#percentageInput');
+    const resultDiv = document.querySelector('.result');
+    const totalDiv = document.querySelector('h3');
+    const partySize = document.querySelector('#partySize');
+    const sliceResult = document.querySelector('.slice');
+    console.log(textInput, resultDiv);
+    textInput.addEventListener('input', function () {
+        calculate();
+    });
+    percentageInput.addEventListener('input', function () {
+        calculate();
+    });
+    partySize.addEventListener('input', function () {
+        calculate();
+    });
+
+    function calculate() {
+        const value = parseInt(textInput.value);
+        console.log(value);
+        if (isNaN(value)) {
+            console.log('isNaN is true')
+        } else {
+            console.log('isNaN is false. do some work');
+            const tip = (Number(textInput.value) * (Number(percentageInput.value) / 100));
+            const tipToFixed = tip.toFixed(2);
+            resultDiv.innerHTML = '$' + tipToFixed;
+            const totalToFixed = (tip + Number(textInput.value)).toFixed(2);
+            totalDiv.innerHTML = '$' + totalToFixed;
+            if (partySize.value) {
+                sliceResult.innerHTML = `$${(totalToFixed / partySize.value).toFixed(2)}`
+            }
+        }
+    }
+
+    function setPercentage(value) {
+        percentageInput.value = value;
+        calculate();
+    }
+    calculate()
+</script>
+</body>
+</html>

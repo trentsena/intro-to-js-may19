@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .char {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    const width = 860;
+    const height = 540;
+    const offsetX = -73;
+    const offsetY = -10;
+    const charW = Math.floor(width / 8);
+    const charH = Math.floor(height / 3);
+    for (let i = 0; i < 8 * 3; i++) {
+        console.log('i', i);
+        const char = document.createElement('div');
+        char.classList.add('char');
+        const img = document.createElement('div');
+
+        img.style.width = charW+ 'px';
+        img.style.height = charH + 'px';
+        img.classList.add('char');
+        const row = Math.floor(i / 8);
+        const column = Math.floor(i % 8) ;
+        let x = -Math.floor(column * charW);
+        const y = -Math.floor(row * charH);
+        img.style['background-image'] = 'url("char.png") ';
+        img.style['background-position'] =  `${x + (offsetX)}px ${y + (offsetY)}px`;
+        img.style['background-size'] = '1000px';
+        img.style['background-repeat'] = 'no-repeat';
+        document.body.appendChild(img);
+    }
+</script>
+
+</body>
+</html>
