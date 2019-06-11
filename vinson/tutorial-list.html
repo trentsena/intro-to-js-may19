@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial: List</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="shared/doc.css">
+    <style>
+
+        html {
+            padding:0 10vw;
+            font-size: 2em;
+        }
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            padding: .2em;
+        }
+
+        p, pre  {
+            margin: .2em;
+
+        }
+        body {
+
+        }
+
+        .code {
+            background-color: moccasin;
+            color: black;
+        }
+
+        .code {
+            position: relative;
+            display: block;
+            border-bottom: 1px dotted black;
+            font-size: large;
+        }
+
+        .code .tooltiptext {
+            visibility: hidden;
+            background-color: black;
+            border-radius: 6px;
+            padding: 5px 0;
+
+            /* Position the tooltip */
+            position: absolute;
+            z-index: 1;
+        }
+
+        .code:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .full {
+            background-color: lavenderblush;
+            user-select: text;
+        }
+        textarea{
+            /* box-sizing: padding-box; */
+            overflow:hidden;
+            /* demo only: */
+            padding:10px;
+            width:100%;
+            font-size:14px;
+            margin:50px auto;
+            display:block;
+            border-radius:10px;
+            border:6px solid #556677;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <a href="../vinson">index</a>
+
+        <h1>Tutorial: List</h1>
+    <p>
+        This tutorial will walk us through making a list app.
+    </p>
+    <p>
+        Start with a fresh blank html outline
+    </p>
+    <p>
+        Add a script tag and lets write JavaScript
+    </p>
+    <hr>
+    <p>
+        First lets create a h1 tag and save it in a variable named header
+    </p>
+    <pre class="code">
+            const header = document.createElement("h1");
+    </pre>
+    <p>
+        If you load your html page you will notice it does not show an h1 on the page.
+    That is because of 2 reasons.
+    </p>
+    <p>
+        1). it has no text to display.
+        Lets git it text.
+    </p>
+    <pre class="code">
+        header.textContent = "My List App";
+    </pre>
+    <p>
+        2). It is not placed anywhere in the body. It is just an element in memory.
+    </p>
+    <pre class="code">
+        document.body.appendChild(header);
+    </pre>
+    <p>
+        So lets recap. We created an element. We gave it text. Then we placed it in an element.
+    </p>
+    <p>
+        Remember that pattern.
+    </p>
+    <hr>
+    <p>
+        Next we need an input for the users to write an item for their list.
+    </p>
+    <p>
+        Lets create one.
+    </p>
+    <pre class="code">
+        const myInput = document.createElement('input');
+    </pre>
+    <p>
+        There is not a textContent property for an input. Instead lets add a place holder.
+    </p>
+    <pre class="code">
+        myInput.placeholder = "Enter list item name";
+    </pre>
+
+    <p>
+        Next lets place the input on the page
+    </p>
+    <pre class="code">
+        document.body.appendChild(myInput);
+    </pre>
+    <hr>
+    <p>
+        Now we want to add a button to submit the new item.
+    </p>
+    <pre class="code">
+        const button = document.createElement('button');
+    </pre>
+    <p>
+        Add text to it
+    </p>
+    <pre class="code">
+        button.innerText = 'Add New Item';
+    </pre>
+    <p>
+        Add the element to the page
+    </p>
+    <pre class="code">
+        document.body.appendChild(button);
+    </pre>
+    <p>Next lets create an ul tag</p>
+    <pre class="code">
+        const ul = document.createElement("ul");
+    </pre>
+    <p>Lets place it on the body</p>
+    <pre class="code">
+        document.body.appendChild(ul);
+    </pre>
+    <hr>
+    <p>Now we need our button to add list items to our ul.</p>
+    <p>First we will need a function that will be called when we click the button</p>
+    <pre class="code">
+            function addListItem() {
+                if (!myInput.value) return;
+                const li = document.createElement("li");
+                li.innerText = myInput.value;
+                ul.appendChild(li);
+                li.addEventListener("click", function() {
+                    if ( this.classList.contains('done') ) {
+                        this.classList.remove('done');
+                    } else {
+                        this.classList.add('done');
+                    }
+                });
+                myInput.value = '';
+            }
+    </pre>
+    <p>
+        Now that was a lot of code. Lets go over it.
+    </p>
+    <p>
+        1) We are checking if there is value in our input.
+    </p>
+    <p>
+        2). We then create a li if there is value in our input.
+    </p>
+    <p>
+        3). We give the li the text of the input.value.
+    </p>
+    <p>
+        4). This time we appendChild to the ul and not the body like before.
+    </p>
+    <p>
+        5). Then we add a listener to the li that adds a "done" class if it not added or removes it if it has it already.
+    </p>
+    <p>
+        6). Last we clear the input.
+    </p>
+    <p>
+        Now we have to add a listener to the button and tell it when a click event happens run our function
+    </p>
+
+    <pre class="code">
+        button.addEventListener("click", addListItem);
+    </pre>
+
+    <textarea id="selectable" onclick="selectText('selectable')" class="full code" onmouseenter="autosize()">
+
+    </textarea>
+</main>
+
+
+<script>
+    let currentCode = '';
+    const codes = document.querySelectorAll('.code');
+    codes.forEach( (code, index) => {
+        currentCode += code.innerText;
+        const uptoCode = currentCode;
+        code.addEventListener('click', function () {
+            const full = document.querySelector('.full');
+            full.value = uptoCode;
+            this.parentNode.insertBefore(full, this.nextSibling);
+            autosize();
+        })
+    });
+
+    function selectText(id) {
+        console.log('text copy')
+        var copyText = document.getElementById("selectable");
+        copyText.select();
+        document.execCommand("copy");
+        alert("Copied the text: " + copyText.value);
+    }
+
+
+    function autosize(){
+        var el = document.getElementById("selectable");
+        console.log(el);
+        setTimeout(function(){
+            el.style.cssText = 'height:auto; padding:0';
+            // for box-sizing other than "content-box" use:
+            // el.style.cssText = '-moz-box-sizing:content-box';
+            el.style.cssText = 'height:' + el.scrollHeight + 'px';
+        },0);
+    }
+
+</script>
+
+</body>
+</html>

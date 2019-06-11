@@ -1,0 +1,14 @@
+.jumbotron {
+    background-image: url('../img/forest.jpg');
+    background-position: fixed;
+    background-size: cover;
+    height: 450px;
+    font-size: .5em;
+    color: #c7a727;
+    text-align: center;
+    text-shadow: 1px 1px 0px black;
+}
+
+.weeks {
+    text-align: center;
+}

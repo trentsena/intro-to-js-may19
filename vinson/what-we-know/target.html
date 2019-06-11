@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="../shared/doc.css">
+</head>
+<body>
+<main>
+    <h1>Target</h1>
+    <ul>
+        <a href="../../">Home</a>
+    </ul>
+    <p>
+        We can also reference HTMLElements(objects) in the dom.
+    </p>
+    <hr>
+    <section>
+        <h3>querySelector</h3>
+        <p>
+            we can use querySelector if we want to reference 1 html element object. Our result will be a single html
+            element object.
+        </p>
+        <p class="code">
+            var myElement = document.querySelector('h1');
+        </p>
+        <p class="code">
+            let myElement = document.querySelector('#title');
+        </p>
+        <p class="code">
+            const myElement = document.querySelector('.items');
+        </p>
+    </section>
+    <hr>
+    <section>
+        <h3>querySelectorAll</h3>
+        <p>
+            we can use querySelectorAll if we want to reference more than 1 html element object. Our results would be a
+            list of elements
+        </p>
+        <p class="code">
+            var myElements = document.querySelectorAll('h2');
+        </p>
+        <p class="code">
+            let myElements = document.querySelectorAll('[group=cars]');
+        </p>
+        <p class="code">
+            const myElements = document.querySelectorAll('.items');
+        </p>
+
+    </section>
+    <hr>
+    <section>
+        <h3>getElementById</h3>
+        <p>
+            we can use getElementById if we want to reference 1 html element object. Our result will be a single html
+            element object.
+        </p>
+        <p class="code">
+            var myElement = document.getElementById('title');
+        </p>
+    </section>
+    <section>
+        <h3>getElementsByTagName</h3>
+        <p>
+            we can use getElementsByTagName if we want to reference more than 1 html element object. Our results would
+            be a list of elements
+        </p>
+        <p class="code">
+            var myElements = document.getElementsByTagName('li');
+        </p>
+    </section>
+    <section>
+        <h3>getElementsByClassName</h3>
+        <p>
+            we can use getElementsByClassName if we want to reference more than 1 html element object. Our results would
+            be a list of elements
+        </p>
+        <p class="code">
+            var myElements = document.getElementsByClassName('items');
+        </p>
+    </section>
+    <hr>
+</main>
+<script src="../shared/doc.js">
+</script>
+</body>
+</html>

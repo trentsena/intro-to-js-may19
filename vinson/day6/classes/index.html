@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes</title>
+    <style>
+        .head {
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .leftEye, .rightEye {
+            background-color: transparent;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            border-radius: 50%;
+            transition: 1s ease all ;
+            box-shadow: 0 40px 0 0px black;
+            top: calc(33% - 50px);
+        }
+
+        .leftEye {
+            left: calc(33% - 20px);
+        }
+        .rightEye {
+            left: calc(66% - 20px);
+        }
+        .mouth {
+            background-color: transparent;
+            height: 20px;
+            width:80px;
+            position: absolute;
+            border-radius: 50%;
+            top: calc(66% - 10px);
+            left: calc(50% - 40px);
+            transition: all 1s ease;
+            box-shadow: 0 10px 0 0px black;
+        }
+
+        .closedEye {
+            background-color: transparent;
+            box-shadow: 0 10px 0 0px black;
+            top: calc(33% - 19px);
+        }
+        .small-mouth {
+            width: 20px;
+            left: calc(50% - 10px);
+        }
+
+
+        .large {
+            height: 400px;
+            width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+   const comments = [];
+   comments.push('create an array to hold all of our face instance');
+    const faces = [];
+   comments.push('create a model for our face objects to be based on');
+    class Face {
+        head;
+        leftEye;
+        rightEye;
+        mouth;
+        constructor(color) {
+            comments.push('We pass in a color for the head');
+           comments.push('then we push each new object into our faces array');
+            faces.push(this);
+            comments.push('then we create all of our elements and save them in member properties')
+            this.head = document.createElement('div');
+            this.head.self = this;
+            this.leftEye = document.createElement('div');
+            this.rightEye = document.createElement('div');
+            this.mouth = document.createElement('div');
+
+            comments.push('add the color that is passed into the constructor to the head ')
+            this.head.style.backgroundColor = color;
+
+            comments.push('give each element a class of what it represents');
+            this.head.classList.add('head');
+            this.leftEye.classList.add('leftEye');
+            this.rightEye.classList.add('rightEye');
+            this.mouth.classList.add('mouth', 'small-mouth');
+
+            comments.push('append the head to the body so it is visible');
+            document.body.appendChild(this.head);
+            comments.push('append everything else to the head');
+            this.head.appendChild(this.leftEye);
+            this.head.appendChild(this.rightEye)
+            this.head.appendChild(this.mouth);
+            const self = this;
+
+            comments.push('we can still add listeners to all of our elements');
+            this.leftEye.addEventListener('mouseenter', function () {
+                if (this.classList.contains('closedEye')){
+                    self.openEyes()
+                } else {
+                    self.closeLeft();
+                }
+            })
+        }
+
+        closeEyes() {
+            comments.push('we then create methods which are just functions on our objects');
+            this.rightEye.classList.add('closedEye');
+            this.leftEye.classList.add('closedEye');
+        }
+        openEyes() {
+            this.rightEye.classList.remove('closedEye');
+            this.leftEye.classList.remove('closedEye');
+        }
+        closeLeft() {
+            this.leftEye.classList.add('closedEye');
+        }
+        closeRight() {
+            this.rightEye.classList.add('closedEye');
+        }
+        openLeft() {
+            this.leftEye.classList.remove('closedEye');
+        }
+        openRight() {
+            this.rightEye.classList.remove('closedEye');
+        }
+        closeMouth() {
+            this.mouth.classList.remove('small-mouth');
+        }
+        openMouth() {
+            this.mouth.classList.remove('small-mouth');
+        }
+    }
+
+    comments.push('extend our class by using the keyword extends');
+    class LargeFace extends Face {
+        constructor(color) {
+            super(color);
+            comments.push('the super method is the fist call to make if you extend a class')
+            console.log('large face');
+            this.head.classList.add('large');
+        }
+        openEyes() {
+            super.openEyes();
+            comments.push('i can override a method with the same name');
+            comments.push('if i dont need to run origin method I dont need super.openEyes')
+            console.log('open eyes on a large class')
+        }
+    }
+
+    const colors = ['yellow', 'green', 'red', 'blue', 'pink'];
+    comments.push('for loop. learn it');
+    comments.push('for loop takes 3 args');
+    comments.push('1, let i = 0. a place to start');
+    comments.push('2, condition to continue run');
+    comments.push('3, i++, this happens if condition is true');
+    for(let i = 0; i < 10; i++) {
+        comments.push('logic, for each loop iteration');
+        comments.push('Math.floor will round down');
+        comments.push('Math.random will create a number 0 - 1, with a bunch of decimals');
+        comments.push('Math.random() * a number you want to not exceed');
+        const randomNumber = Math.floor( Math.random() * colors.length);
+        comments.push('create an array of all Classes')
+        const type = [Face, LargeFace];
+        const rN = Math.floor( Math.random() * type.length);
+        comments.push('call new on whichever type is randomly chosen')
+        new type[rN](colors[randomNumber]);
+    }
+
+    setInterval(function () {
+        comments.push('list all actions these are the methods on the object')
+        const actions = [
+            'closeEyes',
+            'openEyes',
+            'closeLeft',
+            'closeRight',
+            'openLeft',
+            'openRight',
+            'openMouth',
+            'closeMouth'
+        ];
+
+
+            const randomNumber = Math.floor(Math.random() * actions.length);
+        faces.forEach( function (face) {
+            face[actions[randomNumber]]()
+        })
+    }, 1000)
+</script>
+</body>
+</html>

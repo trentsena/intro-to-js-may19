@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>list</title>
+    <style>
+
+        li {
+            transition: all 1s ease;
+        }
+        .checked {
+            text-decoration: line-through;
+        }
+        .tiny {
+            font-size: .5em;
+        }
+        .grey {
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+
+<h1>List App</h1>
+
+<script>
+    const body = document.body;
+    function create(type, parent, text){
+        const el = document.createElement(type);
+        // update the body tags children array
+        parent.appendChild(el);
+        if(text) {
+            el.innerText = text;
+        }
+        return el;
+    }
+    const input = create('input', body);
+    const button = create('button', body, 'Submit');
+    const ul = create('ul', body);
+
+    button.addEventListener('click', newTodo);
+    function newTodo() {
+        const value = input.value;
+        if (!value) {
+            return;
+        }
+        const li = create('li', ul, value);
+        const checkbox = create('input', li);
+        li.prepend(checkbox);
+        checkbox.type = 'checkbox';
+        checkbox.value = '';
+        checkbox.addEventListener('change', function () {
+            console.dir(this.checked);
+
+            if (this.checked) {
+                this.parentNode.classList.add('checked');
+                this.parentNode.classList.add('tiny');
+                this.parentNode.classList.add('grey');
+                // this.parentNode.remove();
+            } else {
+                this.parentNode.classList.remove('checked');
+                this.parentNode.classList.remove('tiny');
+                this.parentNode.classList.remove('grey');
+            }
+
+            console.log(this.parentNode.classList);
+        })
+    }
+</script>
+</body>
+</html>

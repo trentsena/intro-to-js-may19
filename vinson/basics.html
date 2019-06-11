@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basics</title>
+    <link rel="stylesheet" href="shared/doc.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        li {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+<main>
+    <h1>Basics</h1>
+    <ul>
+        <a href="../index.html">Home</a>
+    </ul>
+    <hr>
+    <section>
+        <h3>Types</h3>
+        <table style="width:100%">
+            <tr>
+                <th>Types</th>
+                <th>Primitive</th>
+                <th>Complex</th>
+                <th>Truthy</th>
+                <th>Falsy</th>
+            </tr>
+            <tr>
+                <td>String</td>
+                <td>x</td>
+                <td>-</td>
+                <td>All except ""</td>
+                <td>only ""</td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>x</td>
+                <td>-</td>
+                <td>All except 0</td>
+                <td>only 0</td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td>x</td>
+                <td>-</td>
+                <td>only true</td>
+                <td>only false</td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td>-</td>
+                <td>x</td>
+                <td>Always</td>
+                <td>Never</td>
+            </tr>
+            <tr>
+                <td>Array</td>
+                <td>-</td>
+                <td>x</td>
+                <td>Always</td>
+                <td>Never</td>
+            </tr>
+            <tr>
+                <td>HtmlElement</td>
+                <td>-</td>
+                <td>x</td>
+                <td>Always</td>
+                <td>Never</td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+    <section>
+        <h3>
+            Variables
+        </h3>
+
+        <table style="width:100%">
+            <tr>
+                <th>Keyword</th>
+                <th>re-assignable</th>
+                <th>re-declarable</th>
+                <th>scope</th>
+            </tr>
+            <tr>
+                <td>var</td>
+                <td>true</td>
+                <td>true</td>
+                <td>lexical</td>
+            </tr>
+            <tr>
+                <td>let</td>
+                <td>true</td>
+                <td>false</td>
+                <td>block</td>
+            </tr>
+            <tr>
+                <td>const</td>
+                <td>false</td>
+                <td>false</td>
+                <td>block</td>
+            </tr>
+        </table>
+    </section>
+    <hr>
+    <section>
+        <h3>What you can do</h3>
+        <table style="width:100%">
+            <tr>
+                <th>Types</th>
+                <th>Create</th>
+                <th>Read</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            <tr>
+                <td>String</td>
+                <td>var myString = "i am a string"</td>
+                <td>console.log( myString )</td>
+                <td>myString = "i am an updated string"</td>
+                <td>cannot ( primitive )</td>
+            </tr>
+            <tr>
+                <td>Number</td>
+                <td>let myNumber = 1</td>
+                <td>console.log( myNumber )</td>
+                <td>myNumber = 2</td>
+                <td>cannot ( primitive )</td>
+            </tr>
+            <tr>
+                <td>Boolean</td>
+                <td>const myBool = true</td>
+                <td>console.log( myBool )</td>
+                <td>myBool = false</td>
+                <td>cannot ( primitive )</td>
+            </tr>
+            <tr>
+                <td>Object</td>
+                <td>var myObj = { name: 'vinson'}</td>
+                <td>console.log( myObject.name )</td>
+                <td>myObj.name = "vince"</td>
+                <td>only properties</td>
+            </tr>
+            <tr>
+                <td>Array</td>
+                <td>let myArray = [ 0, {}, true ]</td>
+                <td>console.log( myArray[ 2 ] )</td>
+                <td>myObj[0]= true</td>
+                <td>only indexes</td>
+            </tr>
+            <tr>
+                <td>HtmlElement</td>
+                <td>const myEl = document.createElement( 'h1' )</td>
+                <td>document.querySelector( 'h1' )</td>
+                <td>myEl.classList.add( 'class' )</td>
+                <td>myEl.remove()</td>
+            </tr>
+        </table>
+    </section>
+
+    <hr>
+</main>
+<script src="shared/doc.js"></script>
+</body>
+</html>

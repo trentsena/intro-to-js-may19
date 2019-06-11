@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        :root {
+            --full-width: 860;
+            --full-height: 540;
+            --full-columns: 8;
+            --full-rows: 3;
+            --x-offset: -70;
+            --y-offset: -10;
+        }
+
+        .img {
+            width: calc(var(--full-width) * 1px);
+            height: calc(var(--full-height) * 1px);
+
+            background-size: 1000px;
+        }
+        .char {
+            background-size: 1000px;
+            position: relative;
+            text-align: center;
+            text-transform: capitalize;
+            color: white;
+            font-weight: bolder;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            border: saddlebrown 2px solid;
+            box-sizing: border-box;
+        }
+        .name {
+            background-color: black;
+            height: 23%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+            border: #e8bd24 8px solid;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+        }
+        .container {
+            width: 856px;
+            margin: 0 auto;
+            border: 4px solid black;
+            background-color: black;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-color: saddlebrown;
+        }
+
+        .dismissed .overlay {
+            background-color: hsla(0,30%,30%, .9);
+        }
+
+        .dismissed {
+            display: none;
+        }
+
+        button {
+            padding: 4px;
+            font-size: 2em;
+            margin: 5px;
+            border-radius: 10px;
+            background-color: cornflowerblue;
+            border: blue 1px solid;
+        }
+        p {
+            text-align: center;
+            font-size: 2em;
+        }
+
+    </style>
+</head>
+<body>
+<p>
+    Guess Who?
+</p>
+<p>
+    Each wrong guess adds a point!
+</p>
+<script>
+    const width = 860;
+    const height = 540;
+    const offsetX = -73;
+    const offsetY = -10;
+    const charW = Math.floor(width / 8);
+    const charH = Math.floor(height / 3);
+    let score = 0;
+    let scoreDiv;
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+    container.classList.add('container');
+    const classes = {
+        0: ['alex', 'male', 'boy', 'black', 'moustache'],
+        1: ['alfred', 'male', 'boy', 'orange', 'red', 'ginger', 'moustache', 'beard','blue'],
+        2: ['anita', 'female', 'girl', 'yellow', 'blonde', 'blond', 'rosy', 'blue'],
+        3: ['anna', 'female', 'girl', 'black'],
+        4: ['bernard', 'male', 'boy', 'brown', 'hat'],
+        5: ['bill', 'male', 'boy', 'bald', 'orange', 'red', 'ginger', 'beard', 'rosy'],
+        6: ['charles', 'male', 'boy', 'yellow', 'blonde', 'blond', 'moustache'],
+        7: ['claire', 'female', 'girl','orange', 'red', 'ginger', 'hat', 'glasses'],
+        8: ['david', 'male', 'boy', 'yellow', 'blonde', 'blond', 'beard'],
+        9: ['eric', 'male', 'boy', 'hat', 'yellow', 'blonde', 'blond'],
+        10:['frans', 'male', 'boy','orange', 'red', 'ginger'],
+        11: ['george', 'male', 'boy', 'white', 'grey', 'gray', 'hat'],
+        12: ['herman', 'male', 'boy', 'bald','orange', 'red', 'ginger'],
+        13: ['joe', 'male', 'boy', 'yellow', 'blonde', 'blond', 'glasses'],
+        14: ['maria', 'female', 'girl', 'brown', 'hat'],
+        15: ['max', 'male', 'boy', 'black', 'moustache'],
+        16: ['paul', 'male', 'boy', 'white', 'grey', 'gray', 'glasses'],
+        17: ['peter', 'male', 'boy', 'white', 'grey', 'gray','blue'],
+        18: ['phillip', 'male', 'boy', 'black', 'beard', 'rosy'],
+        19: ['richard', 'male', 'boy', 'bald', 'brown', 'moustache', 'beard'],
+        20: ['robert', 'male', 'boy', 'brown', 'rosy','blue'],
+        21: ['sam', 'male', 'boy', 'bald','white', 'grey', 'gray', 'glasses'],
+        22: ['susan', 'female', 'girl', 'white', 'grey', 'gray', 'rosy'],
+        23: ['tom', 'male', 'boy', 'bald', 'black', 'glasses','blue'],
+    };
+
+    function Game() {
+
+        const chars = document.querySelectorAll('.char');
+
+        const randomCard = chars[Math.floor(Math.random() * chars.length)];
+        return {
+            suspect: randomCard,
+        }
+    }
+    let game = null;
+
+    function setup() {
+        container.innerHTML = '';
+        scoreDiv  = document.createElement('div');
+
+        scoreDiv.style.fontSize = '2em';
+        scoreDiv.style.color = 'lime';
+
+
+        container.appendChild(scoreDiv);
+        writeScore();
+        score = 0;
+        for (let i = 0; i < 3 * 8; i++) {
+            const img = document.createElement('div');
+            container.appendChild(img);
+            img.style.width = charW+ 'px';
+            img.style.height = charH + 'px';
+            img.classList.add('char');
+            const row = Math.floor(i / 8);
+            const column = Math.floor(i % 8) ;
+            let x = -Math.floor(column * charW);
+            const y = -Math.floor(row * charH);
+            img.style['background-image'] = 'url("char.png") ';
+            img.style['background-position'] =  `${x + (offsetX)}px ${y + (offsetY)}px`;
+            img.style['background-size'] = '1000px';
+            img.style['background-repeat'] = 'no-repeat';
+            const overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+            img.innerHTML = `<div class="name">${classes[i][0]}</div>`;
+            img.classList.add(...classes[i]);
+            img.appendChild(overlay);
+        }
+        const options = [];
+        for(let key in classes) {
+            classes[key].forEach(function (prop) {
+                if (!options.includes(prop)) {
+                    options.push(prop);
+                }
+            })
+        }
+        options.sort();
+
+
+
+        game = new Game();
+        console.log('chars', game);
+
+
+        const hr = document.createElement('hr');
+        container.appendChild(hr);
+        const input = document.createElement('textarea');
+        container.appendChild(input);
+
+        input.addEventListener('input', function () {
+            let o;
+            let correct = false;
+            if (input.value && input.value[input.value.length -1] === '?') {
+                const question = input.value.slice(0, -1).toLowerCase();
+                input.value = '';
+                console.log('question');
+                options.forEach( opt => {
+                    if (question.split(' ').includes(opt)) {
+                        o = opt;
+                    }
+                    if (o && !game.suspect.classList.contains(o)) {
+                        document.querySelectorAll(`.${o}`).forEach( dis => {
+                            dis.classList.add('dismissed')
+                        })
+                    } else if (o && game.suspect.classList.contains(o)) {
+                        correct = true;
+                        document.querySelectorAll(`.char`).forEach( sus => {
+                            if(!sus.classList.contains(o)) {
+                                sus.classList.add('dismissed')
+                            }
+                        })
+                    }
+                });
+                if (correct) {
+                    console.log(correct);
+                    score--;
+                }
+                if (o) {
+                    score++;
+                    writeScore();
+                }
+
+                console.log('o', o, game.suspect);
+            }
+        });
+        input.style.fontSize = '40px';
+        input.style.width = '800px';
+        input.style.position = 'relative';
+        input.style.left = 'calc(50% - 400px)';
+        input.style.display = 'inline-block';
+        for(let i = 0; i < options.length; i++) {
+            const button = document.createElement('button');
+            button.innerText = options[i];
+            button.addEventListener( "click", function () {
+                // document.querySelectorAll(`.${options[i]}`).forEach(function (char) {
+                //     if (!char.classList.contains('dismissed')) {
+                //         char.classList.add('dismissed');
+                //     }else {
+                //         char.classList.remove('dismissed');
+                //     }
+                //
+                // })
+                input.value = options[i];
+            });
+            container.appendChild(button);
+        }
+    }
+
+
+    function writeScore() {
+        scoreDiv.innerText = `SCORE: ${score}`;
+        getRemaining();
+    }
+
+    function getRemaining() {
+        const remaining = document.querySelectorAll(".char:not(.dismissed)").length;
+        console.log('remaining', remaining);
+        if (remaining === 1) {
+            setTimeout(function () {
+                alert(`Your score is ${score}! Try again`)
+                setup();
+            },100);
+
+        }
+    }
+
+    setup();
+</script>
+
+</body>
+</html>

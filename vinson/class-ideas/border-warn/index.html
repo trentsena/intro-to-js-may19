@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="border-warn.js"></script>
+    <script src="../spin-in/spin-in.js"></script>
+    <style>
+
+        .fix  img {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+
+<vf-spin-in>
+    <vf-border-warn>
+        <img src="../../images/slide03.jpg" alt="">
+    </vf-border-warn>
+</vf-spin-in>
+
+
+
+<div>
+    <input type="text">
+    <img src="../../images/slide01.jpg" alt="">
+</div>
+
+<vf-spin-in>
+    <vf-border-warn>
+        <img src="../../images/slide03.jpg" alt="">
+    </vf-border-warn>
+</vf-spin-in>
+
+
+
+<div>
+    <input type="text">
+    <img src="../../images/slide01.jpg" alt="">
+</div>
+<vf-spin-in>
+    <vf-border-warn>
+        <img src="../../images/slide03.jpg" alt="">
+    </vf-border-warn>
+</vf-spin-in>
+
+
+
+<div>
+    <input type="text">
+    <img src="../../images/slide01.jpg" alt="">
+</div>
+<script>
+    const vBorder = document.querySelector('body');
+    console.log(vBorder);
+    vBorder.addEventListener('check', function () {
+        console.log('check was called')
+    });
+</script>
+
+</body>
+</html>

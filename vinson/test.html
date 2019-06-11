@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>List App</title>
+
+    <style>
+        .done {
+            text-decoration: line-through;
+        }
+
+    </style>
+</head>
+<body>
+
+<script>
+    const header = document.createElement("h1");
+    header.textContent = "My List App";
+    document.body.appendChild(header);
+    const myInput = document.createElement('input');
+    myInput.placeholder = "Enter list item name";
+    document.body.appendChild(myInput);
+    const button = document.createElement('button');
+    button.innerText = 'Add New Item';
+    document.body.appendChild(button);
+    const ul = document.createElement("ul");
+    document.body.appendChild(ul);
+    function addListItem() {
+        if (!myInput.value) return;
+        const li = document.createElement("li");
+        li.innerText = myInput.value;
+        ul.appendChild(li);
+        li.addEventListener("click", function() {
+            if ( this.classList.contains('done') ) {
+                this.classList.remove('done');
+            } else {
+                this.classList.add('done');
+            }
+        });
+        myInput.value = '';
+    }
+    button.addEventListener("click", addListItem);
+
+</script>
+</body>
+</html>

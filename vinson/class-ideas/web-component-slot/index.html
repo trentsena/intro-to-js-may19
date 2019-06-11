@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slot WebComponents</title>
+</head>
+<body>
+    <vf-spinning-thing>
+        <img src="../../images/bg.jpg" alt="">
+    </vf-spinning-thing>
+<p>
+    spinning thing
+</p>
+    <script>
+        const template = document.createElement('template');
+        template.innerHTML = `
+<style>
+    :host{ display: inline-block}
+</style>
+<slot/>
+`;
+        class VfSpinningThing extends HTMLElement {
+            constructor(){
+                super();
+                console.log('logo');
+                this.attachShadow({mode: 'open'});
+            }
+            connectedCallback() {
+                this.shadowRoot.appendChild(template.content.cloneNode(true));
+                this.animate([
+                    {transform: 'scale(0) rotate(0deg)'},
+                    {transform: 'scale(2) rotate(1080deg)'},
+                    {transform: 'scale(1) rotate(2160deg)'},
+                ], {
+                    duration: 1000,
+                    easing: 'cubic-bezier(.88,0.2,0.6, 1)',
+                    fill: 'forwards'
+                });
+            }
+        }
+        customElements.define('vf-spinning-thing', VfSpinningThing)
+    </script>
+</body>
+</html>

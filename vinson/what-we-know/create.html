@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Create</title>
+    <link rel="stylesheet" href="../shared/doc.css">
+</head>
+<body>
+<main>
+    <h1>Create</h1>
+    <ul>
+        <a href="../../">Home</a>
+    </ul>
+    <p>
+        There are lots of ways to create things in javascript. Lets take a look.
+    </p>
+    <hr>
+    <section>
+        <h3>variables</h3>
+        <p>
+            to create a variable we use a keyword( var, let, const ).
+        </p>
+        <p class="code">
+            var myNumber = 9;
+        </p>
+        <p class="code">
+            let myNumber = 9;
+        </p>
+        <p class="code">
+            const myNumber = 9;
+        </p>
+    </section>
+    <hr>
+    <section>
+        <h3>functions</h3>
+        <p>
+            to create a function we use the keyword function and give it a name or without a name it is an anonymous
+            function.
+        </p>
+        <pre class="code">
+function someFunction( parameter1, parameter2 ) {
+    const myValue = parameter1; // argument is what we call the value of a parameter.
+    const myValue = arguments[1]; // argument[1] will be the value of parameter2.
+}
+            </pre>
+
+        <p>
+            Or you can use an anonymous arrow function.
+        </p>
+        <pre class="code">
+( parameter1, parameter2 ) => {
+    const myValue = parameter1; // argument is what we call the value of a parameter.
+    const myValue = arguments[1]; // argument[1] will be the value of parameter2.
+}
+            </pre>
+    </section>
+    <hr>
+    <section>
+        <h3>HTML Elements</h3>
+        <p>
+            to create an HTML Element we have to use the document object method createElement.
+        </p>
+        <pre class="code">
+document.createElement("h1");
+        </pre>
+
+        <p>
+            Creating an HTMLElement does not place it in the web page. we need to appendChild or prepend.
+        </p>
+        <pre class="code">
+document.body.appendChild(myVariableHoldingAnH1);
+        </pre>
+        <p>
+            We can also add them inside an element by using strings.
+        </p>
+        <pre class="code">
+document.body.querySelector('main').innerHTML = "&lt;div&gt;  &lt;ul&gt;  &lt;li&gt;  &lt;/li&gt; &lt;/ul&gt; &lt;/div&gt;"
+        </pre>
+    </section>
+    <hr>
+</main>
+<script src="../shared/doc.js">
+</script>
+</body>
+</html>
