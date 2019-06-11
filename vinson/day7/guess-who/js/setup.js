@@ -85,6 +85,7 @@ function setup(){
 
     // create a textarea to ask our questions
     const textBox = document.createElement('textarea');
+    textBox.placeholder = 'Ask a Question and see what happens. Remember questions end with ?.';
     // then we add a listener that checks for any input
     textBox.addEventListener('input', function () {
         // create a variable to hold what trait the user is looking for
@@ -140,8 +141,8 @@ function createCard(x, y) {
     // it is just a div with a .char class
     card.classList.add('char');
     // we tell it how wide and how tall it should be
-    card.style.width = (width / columns) + 'px';
-    card.style.height = (height/ rows) + 'px';
+    card.style.minWidth = (width / columns) + 'px';
+    card.style.minHeight = (height/ rows) + 'px';
     // we also set a background based off the supplied parameter
     // x represents how far from the left it should start drawing
     // y represents how far from the top it should start drawing

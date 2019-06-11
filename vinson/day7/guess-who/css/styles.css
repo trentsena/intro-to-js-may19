@@ -6,8 +6,16 @@ div.container {
     height: 404px;
     width: 660px;
     border: 1px black solid;
+    margin: 0 auto;
 }
-
+div.container-2 {
+    text-align: center;
+    width: 660px;
+    border: 1px black solid;
+    margin: 0 auto;
+    background-color: black;
+    color: whitesmoke;
+}
 .char {
     border: 1px solid black;
     display: inline-flex;
