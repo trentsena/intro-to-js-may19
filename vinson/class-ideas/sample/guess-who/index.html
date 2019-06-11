@@ -96,7 +96,7 @@
 <script>
     const width = 860;
     const height = 540;
-    const offsetX = -70;
+    const offsetX = -73;
     const offsetY = -10;
     const charW = Math.floor(width / 8);
     const charH = Math.floor(height / 3);
@@ -162,10 +162,10 @@
             img.classList.add('char');
             const row = Math.floor(i / 8);
             const column = Math.floor(i % 8) ;
-            let x = Math.floor(column * charW) + offsetX;
-            const y = Math.floor(row * charH) + offsetY;
+            let x = -Math.floor(column * charW);
+            const y = -Math.floor(row * charH);
             img.style['background-image'] = 'url("char.png") ';
-            img.style['background-position'] =  `${x - x - x + (offsetX * 2)}px ${y - y - y + (offsetY * 2)}px`;
+            img.style['background-position'] =  `${x + (offsetX)}px ${y + (offsetY)}px`;
             img.style['background-size'] = '1000px';
             img.style['background-repeat'] = 'no-repeat';
             const overlay = document.createElement('div');
