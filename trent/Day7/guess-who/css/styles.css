@@ -13,6 +13,6 @@ div.container {
     display: inline-block;
 
 }
-.textArea {
+textarea {
     width: 100%;
 }

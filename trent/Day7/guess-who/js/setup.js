@@ -27,7 +27,7 @@ const people = [
     ['robert', 'brown'],
     ['sam', ''],
     ['susan', 'girl', ''],
-    ['tom', ''],
+    ['tom', 'black'],
 ];
 const keywords = [];
 for(let i = 0; i < 23; i++) {
