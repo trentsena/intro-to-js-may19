@@ -35,7 +35,6 @@ for(let i = 0; i < 23; i++) {
         if (!keywords.includes(people[i][j])) {
             keywords.push(people[i][j]);
         }
-
     }
 }
 

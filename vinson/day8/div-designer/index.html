@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body * {
+            font-size: 3em;
+        }
+
+        .big {
+            font-size: 4em;
+            background-color: #00ff3a;
+            color: whitesmoke;
+            border: 10px solid blue;
+        }
+        .small {
+            font-size: 1em;
+            background-color: pink;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<input type="text" placeholder="prop">
+<input type="text" placeholder="value">
+<input type="text" placeholder="which one?">
+<button>Click</button>
+<script>
+
+//    // targeting
+//    const div = document.querySelector('div');
+//    const inputs = document.querySelectorAll('input');
+//    const button = document.querySelector('button');
+//    // listener
+//    button.addEventListener('click', function () {
+//        // get input values
+//        const input1Value = inputs[0].value;
+//        const input2Value = inputs[1].value;
+//
+//        // if input1.value is innerHTML we change the inner html
+//        if (input1Value === 'innerHTML') {
+//            div.innerHTML = input2Value;
+//        } else {
+//            // anything else will change its style
+//            div.style[input1Value] = input2Value;
+//        }
+//    });
+
+    const divs= document.querySelectorAll('div');
+    const inputs = document.querySelectorAll('input');
+    const button = document.querySelector('button');
+
+    button.addEventListener('click', function () {
+        const input3 = inputs[2].value;
+        if (inputs[0].value === 'innerHTML') {
+            divs[input3].innerHTML = inputs[1].value;
+        } else if(inputs[0].value === 'class') {
+            divs[input3].classList.add( inputs[1].value);
+        } else {
+            divs[input3].style[inputs[0].value] = inputs[1].value;
+        }
+    })
+
+</script>
+    
+</body>
+</html>
