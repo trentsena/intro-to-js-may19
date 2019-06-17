@@ -102,14 +102,16 @@
                 case 'sign':
                     textArea.value = -Number(textArea.value);
                     break;
-                case '=':
-                    textArea.value = '';
+                case '%':
+                    textArea.value = Number(textArea.value)/ 100;
                     break;
-                case '':
-                    textArea.value = '';
+                case '=':
+                    textArea.value = eval(textArea.value);
                     break;
                 default:
-                    if()
+                    if( textArea.value === '0') {
+                        textArea.value = '';
+                    }
                     textArea.value += this.innerText;
             
             }
