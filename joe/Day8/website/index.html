@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <script>
+        const date = new Date();
+        const hours = date.getHours();
+        console.log(hours);
+        const morning = 'url(https://images.unsplash.com/photo-1501630834273-4b5604d2ee31?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)';
+        const day = 'url(https://images.unsplash.com/photo-1529259292966-34cf6efb1163?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80)';
+        const night = 'url(https://image.shutterstock.com/image-photo/good-night-sleep-well-mixed-260nw-495349684.jpg)';
+        if (hours > 18) {
+            document.body.style.background = night;
+            document.body.style.backgroundSize = 'cover';
+        } else if (hours > 11) {
+            document.body.style.background = day;
+            document.body.style.backgroundSize = 'cover';
+        } else {
+            document.body.style.background = morning;
+            document.body.style.backgroundSize = 'cover';
+        }
+    </script>
+
+</body>
+</html>

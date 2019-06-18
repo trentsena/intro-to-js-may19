@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Div Designer</title>
+    <style>
+        body * {
+            font-size: 2em;
+        }
+
+        .big {
+            font-size: 4em;
+        }
+
+        .small {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <p></p>
+    <input type="text" placeholder="property">
+    <input type="text" placeholder="value">
+    <input type="text" placeholder="which one?">
+    <button>Click</button>
+    
+    <script>
+        const divs = document.querySelectorAll('div');
+        const p = document.querySelector('p');
+        const inputs = document.querySelectorAll('input');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', function () {
+            const input3 = inputs[2].value
+            if (inputs[0].value === 'innerHTML') {
+                divs[input3].innerHTML = inputs[1].value;
+            } else if (inputs[0].value === 'class'){
+                divs[input3].classList = "";
+                divs[input3].classList.add(inputs[1].value)
+            } else {
+                divs[input3].style[inputs[0].value] = inputs[1].value;
+            }
+        })
+    </script>
+</body>
+</html>
+
