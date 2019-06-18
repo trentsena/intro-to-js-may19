@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/designer.js"></script>
+    <style>
+        body * {
+            font-size: 4em;
+        }
+    </style>
+</head>
+<body>
+
+
+<script>
+    const getTodos = new Promise(function (resolve, reject) {
+        console.log('promise created');
+        const url = 'https://jsonplaceholder.typicode.com/todos';
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', url);
+        xhr.onreadystatechange = function () {
+
+
+            if (xhr.readyState === 4) {
+                // console.log(xhr.readyState);
+                const response = JSON.parse( xhr.responseText ) ;
+
+                const completed = response.filter( todo => {
+                    return todo.completed
+                });
+                // console.log(completed);
+                const incomplete = response.filter( function (todo) {
+                    return !todo.completed;
+                });
+                // console.log(incomplete)
+                reject(incomplete)
+            }
+
+        };
+        xhr.send();
+    });
+
+    getTodos.then(function (result) {
+        console.log('result', result);
+    }).catch(function (err) {
+        // console.log('err', err);
+    });
+    try {
+        jalja
+    } catch (e) {
+        console.log(e);
+    }
+</script>
+
+</body>
+</html>
