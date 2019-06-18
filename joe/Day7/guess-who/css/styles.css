@@ -1,0 +1,18 @@
+html {
+    background-color: #226688;
+}
+
+div.container {
+    height: 405px;
+    width: 640px;
+    border: 1px black solid;
+}
+
+.char {
+    border: 1px solid black;
+    display: inline-block;
+}
+
+textarea {
+    width: 100%;
+}
