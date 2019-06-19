@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/designer.js"></script>
+    <script>
+        const myPromise = new Promise(function (resolve, reject) {
+            console.log('promise created');
+            setTimeout(function () {
+                resolve(true);
+            }, 5000)
+        });
+
+        getTodos.then(function (result) {
+            console.log('result', result);
+        }).catch(function (err) {
+            // console.log('err', err);
+        });
+
+        try {
+            
+        } catch (e) {
+
+        }
+    </script>
+    <style>
+        body * {
+            font-size: 4em;
+        }
+    </style>
+</head>
+<body>
+
+
+    
+</body>
+</html>

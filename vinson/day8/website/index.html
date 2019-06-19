@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            background-color: #1b6d85;
+            height: 100%;
+            padding: 1px;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<h1>my website</h1>
+<script>
+    const date = new Date();
+    const hours = date.getHours();
+    console.log(hours);
+    document.body.style.backgroundSize = 'cover';
+    const night = `url(https://image.shutterstock.com/image-photo/good-night-sleep-well-mixed-260nw-495349684.jpg) no-repeat `;
+    const day = 'url(https://thumbs.dreamstime.com/z/perfect-sunny-day-6010719.jpg)';
+    const morning = 'url(https://media-cdn.tripadvisor.com/media/photo-s/08/e2/f5/be/atlantis-oceanfront-inn.jpg)';
+    if (hours > 18) {
+        document.body.style.background = night;
+        document.body.style.backgroundSize = 'cover';
+    } else if (hours > 11) {
+        document.body.style.background = day;
+        document.body.style.backgroundSize = 'cover';
+    } else {
+        document.body.style.background = morning;
+        document.body.style.backgroundSize = 'cover';
+    }
+
+    setInterval(function () {
+        document.body.style.background = [morning, day, night][Math.floor(Math.random() * 3)];
+        document.body.style.backgroundSize = 'cover';
+    }, 2000);
+    const h1 = document.querySelector('h1');
+    h1.animate([
+        // keyframes
+        { fontSize: '1em', color: 'red', transform: 'translateY(-300px)' },
+        { fontSize: '3em', color: 'blue', transform: 'translateX(300px)' },
+        { fontSize: '4em', color: 'green', transform: 'translateY(300px)' },
+        { fontSize: '1em', color: 'blue' , transform: 'translateX(0px)' },
+    ], {
+        // timing options
+        duration: 1000,
+        iterations: 3,
+
+    });
+</script>
+</body>
+</html>
