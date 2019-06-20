@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+const pages = [];
+const myVar = 'This is some text';
+
+function createButton(html, listener) {
+    const button = document.createElement('button');
+    button.innerHTML = html;
+    button.addEventListener('click', listener);
+    document.body.appendChild(button);
+}
+
+createButton('-->', function() {
+    const currentPage = document.body.querySelector('.page');
+    const index = pages.indexOf(currentPage);
+    if (index > 0) {
+        currentPage.remove();
+        document.body.appendChild(pages[index + 1]);
+    }
+});
+createButton('home', loadPage);
+createButton('about', loadPage);
+createButton('contact', loadPage);
+createButton('profile', loadPage);
+
+function createPage(html) {
+    const page = document.createElement('div');
+    page.classList.add('page');
+    page.innerHTML = html;
+    pages.push(page);
+}
+
+const pagesConfig = [
+    {html: '<h1>Home</h1>', name: 'home'},
+    {html: '<h1>About</h1>', name: 'about'},
+    {html: '<h1>Contact</h1>', name: 'contact'},
+    {html: `
+        <h1>Profile</h1>
+        <p>This is a description</p>
+        <span class="text">myVar</span>
+    `, name: 'profile'}
+];
+pagesConfig.forEach( function (item) {
+
+})
+for( let i =0; i < 10; i++ ) {
+    createPage(`page number ${i}`);
+}
+document.body.appendChild(pages[0]);
+
+function findPage(name) {
+    const page.find( function (item) {
+        return (item.name === name);
+    });
+    console.log(page);
+    const index = pagesConfig.indexOf(page);
+    return pages[index];
+}
+
+createButton('profile', function () {
+    const name = this.innerText;
+    console.log(name);
+    const page;
+});
+
+function updateText() {
+    const list = document.querySelectorAll('.text');
+    list.forEach( item => {
+        const varToReplace = item.innerHTML;
+        console.log('varToReplace', varToReplace);
+        item.innerHTML
+    })
+}
+</script>
+    
+</body>
+</html>

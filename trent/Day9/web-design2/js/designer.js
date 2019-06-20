@@ -33,8 +33,15 @@ xhr.onreadystatechange = function () {
         response.forEeach( todo => { console.log(todo)});
         const completed = response.filter( todo => {
             return todo.completed
-        })
+        });
+        console.log(conpleted);
+        const incomplete = response.filter( function (todo) {
+            return !todo.completed;
+        });
+        console.log(incomplete)
     }
 };
 xhr.send();
+
+
 });

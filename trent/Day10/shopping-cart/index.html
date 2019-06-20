@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <style>
+        .thumbnail {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>Online Store</h1>
+<div>
+    cart: There are <span class="quantity"></span> items in your cart.
+</div>
+
+<script>
+    const database = [
+    ];
+    const 
+    function createProduct(name, price, quantity, size, img) {
+        const product = {
+            name,
+            price,
+            quantity,
+            size,
+            img,
+        };
+    };
+
+    database.push(createProduct('converse', 49.99, 10, 11, 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.torque-gt.co.uk%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F5db5e42708a7605f533ac6f6b3874018%2Fd%2Fs%2Fdsc06160c.jpg&imgrefurl=https%3A%2F%2Fwww.torque-gt.co.uk%2Fmazda-rx7-type-rb.html&docid=Cv_M0p2iifvTdM&tbnid=USZ5VOOrhANO2M%3A&vet=10ahUKEwiay5SdivfiAhXPGDQIHZB3BV4QMwhNKAEwAQ..i&w=1200&h=800&safe=active&bih=788&biw=1440&q=rx7&ved=0ahUKEwiay5SdivfiAhXPGDQIHZB3BV4QMwhNKAEwAQ&iact=mrc&uact=8'));
+    database.push(createProduct('adidas', 55.50, 2, 9, 'https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.torque-gt.co.uk%2Fmedia%2Fcatalog%2Fproduct%2Fcache%2F5db5e42708a7605f533ac6f6b3874018%2Fd%2Fs%2Fdsc06160c.jpg&imgrefurl=https%3A%2F%2Fwww.torque-gt.co.uk%2Fmazda-rx7-type-rb.html&docid=Cv_M0p2iifvTdM&tbnid=USZ5VOOrhANO2M%3A&vet=10ahUKEwiay5SdivfiAhXPGDQIHZB3BV4QMwhNKAEwAQ..i&w=1200&h=800&safe=active&bih=788&biw=1440&q=rx7&ved=0ahUKEwiay5SdivfiAhXPGDQIHZB3BV4QMwhNKAEwAQ&iact=mrc&uact=8'));
+    console.log(database);
+    database.forEach( item => {
+        const el = document.createElement('div');
+        div.innerHTML = `
+        <h3>${item.name}</h3>
+        <img alt="${item.name}" src="${item.img}" />
+        <div>
+            price: $${item.price}
+        </div>
+        <div>
+            quantity: ${item.quantity}
+        </div>
+        <div>
+            size: ${item.size}
+        </div>
+        <button onclick= "addToCart(item.name)">Add To Cart</button>
+        `;
+        const button = el.querySelector('button');
+        console.log(button);
+        button.addEventListener('click', function() {
+            addToCart(item.name);
+        });
+        document.body.appendChild(el);
+    });
+    function addToCart(name) {
+        console.log(name);
+        database.find(function (item) {
+            return item.name === name;
+        });
+        console.log(product);
+        cart.push
+    };
+    function updateCartQuantity() {
+        document.querySelector('quantity').innerHTML = cart.length + '';
+    }
+    updateCartQuantity();
+    function goToCheckout() {
+        let total = 0;
+        const el = document.querySelector('checkout');
+        const ul = document .createElement('ul');
+        el.appendChild(ul);
+        cart.forEach(item => {
+            const li = document.createElement('li');
+            li.innerText = item.name + ' $' + item.price ;
+            ul.appendChild(li);
+            total += item.price;
+        });
+        const button = document.createElement('button');
+        button.innerText = `Pay $${total}`;
+        el.appendChild('button');
+    }
+</script>
+
+</body>
+</html>
