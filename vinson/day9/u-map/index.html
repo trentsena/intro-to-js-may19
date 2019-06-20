@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body , html{
+            height: 100%;
+        }
+        .map {
+            height: 100%;
+            background: url("map.jpg") no-repeat;
+            position: relative;
+        }
+
+        body  * {
+            font-size: 2em;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="map">
+        <input type="text">
+
+        <span class="hulk">Hulk Ride</span>
+        <span class="jurassic">jurassic Ride</span>
+    </div>
+
+    <script>
+        const rides = [
+            {name: 'hulk', x: 500, y: 500, keywords: ['ride', 'thrill','kid'] },
+            {name: 'jurassic', x: 600, y: 200, keywords: ['ride', 'kid']} ];
+        rides.forEach( ride => {
+            const span = document.querySelector(`.${ride.name}`);
+            span.style.position = 'absolute';
+            span.style.top = `${ride.y}px`;
+            span.style.left = ride.x + 'px';
+            console.log('ride', ride, span);
+            span.style.color = 'transparent';
+        });
+
+        const input = document.querySelector('input');
+        input.addEventListener('input', function (event) {
+            console.log(event.target.value);
+            const spans = document.querySelectorAll('span');
+            // spans.forEach( span => {
+            //    if  (span.innerText.toLowerCase().includes(event.target.value.toLowerCase()) ) {
+            //        span.style.color = 'lime';
+            //        span.style.backgroundColor = 'black'
+            //    } else {
+            //        span.style.color = 'transparent';
+            //        span.style.backgroundColor = 'transparent'
+            //    }
+            //    if( !event.target.value) {
+            //        span.style.color = 'transparent';
+            //        span.style.backgroundColor = 'transparent'
+            //    }
+            // })
+            spans.forEach( span => {
+                span.style.color = 'transparent';
+            });
+            rides.forEach( ride => {
+                if (ride.keywords.includes(event.target.value)) {
+                    const span = document.querySelector('.' + ride.name);
+                    span.style.color = 'lime';
+                }
+            })
+        })
+    </script>
+</body>
+</html>
