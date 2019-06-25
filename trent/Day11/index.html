@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Day 11</title>
+    <style>
+        .container {
+            width: 400px;
+            margin: 0 auto;
+        }
+        .strike-through {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+    </div>
+
+<script>
+    const createElement = function () {
+        const el = document.createElement(kind);
+        el.innerHTML = html;
+        return el;
+    };
+    const container = document.querySelector('container');
+    for( let i = 0; i < 10; i++) {
+        const el = createElement('p', i);
+        el.style.backgroundColor = 'blue';
+        el.style.fontSize = '2em';
+        el.style.color = 'white';
+        el.classList = 'strikethrough';
+
+        el.addEventListener('mouseenter', function () {
+            if (this.nextSibling) {
+                this.nextSibling.style.fontSize = '3em';
+                this.nextSibling.style.backgroundColor = 'red';
+            };
+        });
+        el.addEventListener('mouseleave', function () {
+            if (this.nextSibling) {
+                this.nextSibling.style.fontSize = '2em';
+                this.nextSibling.style.backgroundColor = 'blue';
+            };
+        });
+
+        el.addEventListener('click', fucntion () {
+            if ( el.previousElementSibling ) {
+                el.parentNode.insertBefore(el, el.previousSibling);
+            };
+        });
+    };
+
+    class MyEl {
+        myElFunction() {
+            console.log(this);
+        };
+    };
+    console.log(this);
+    const myEl = new MyEl();
+    myEl.myElFunction();
+
+    const myArray = [
+        {name: 'vinson', git: 'geekwisevinson', email: 'vinsonfernandez@gmail.com', isBig: false},
+        {name: 'renee', git: 'reneeharder', email: 'reneeharder@gmail.com', isBig: false},
+        {name: 'Angelo', git: 'angelomedrano', email: 'medrano.angelo93@gmail.com', hasStar: true},
+        {name: 'Trent', git: 'trentsena', email: 'tsena16@gmail.com', hasFlower: true},
+        {name: 'Jacob', git: 'jakeAguilar', email: 'aguilarjacob23@gmail.com'},
+    ];
+
+    myArray.forEach(createUser)
+
+    function createUser(user) {
+        const div = document.createElement('div');
+        const h1 = document.createElement('h1');
+        h1.innerText = user.name;
+        div.appendChild(h1);
+        const divider = document.createElement('div');
+        div.appendChild(divider);
+        const git = document.createElement('div');
+        const email = document.createElement('div');
+        divider.appendChild(git);
+        divider.appendChild(email);
+        email.innerText = user.email;
+        git.innerText = user.git;
+
+        if (user.isBig) {
+            h1.classList.add('big');
+        } else {
+            h1.classList.remove('big');
+        }
+        if (user.hasStar) {
+            h1.classList.add('star');
+        } else {
+            h1.classList.remove('star');
+        }
+        if (user.hasFlower) {
+            h1.classList.add('flower');
+        } else {
+            h1.classList.remove('flower');
+        }
+    };
+
+</body>
+</html>
