@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    let options = {
+  "url": "https://apis.solarialabs.com/shine/v1/vehicle-stats/specs?make={value}&model={value}&year={value}&full-data={value}&apikey={value}",
+  "method": "GET",
+  "processData": false
+}
+
+$.ajax(options).done((response)=>{
+  console.log(response)
+})
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
